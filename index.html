@@ -1135,6 +1135,31 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Hero cards — photo matches name */
+  .scroller-card-photo--hero {
+    width: 88px;
+    height: 88px;
+    border: 2px solid var(--gold-light);
+    box-shadow: 0 8px 24px rgba(15, 14, 12, 0.12);
+  }
+
+  /* Quote-forward cards — no face photo, big quotation mark instead */
+  .scroller-card--quote {
+    background: var(--paper-deep);
+    border-left: 3px solid var(--gold);
+  }
+
+  .scroller-card-mark {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 700;
+    font-size: 72px;
+    line-height: 0.5;
+    color: var(--gold);
+    height: 36px;
+    margin-bottom: -4px;
   }
 
   .scroller-card-q {
@@ -3645,44 +3670,44 @@
   <div class="scroller-track-wrap">
     <div class="scroller-track">
       <div class="scroller-card">
-        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/800x780/71669a4b62/mvu_about_photogrid_5.jpg" alt=""></div>
-        <p class="scroller-card-q">"I compressed one year of growth into 1 month. If you want to accelerate your life, business and career — MVU is where you have to go."</p>
-        <div class="scroller-card-n">Waleska Cerpa <span>· Mexico</span></div>
+        <div class="scroller-card-photo scroller-card-photo--hero"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x849/0c2ef7bdbf/fh-shefali.webp" alt="Dr. Shefali"></div>
+        <p class="scroller-card-q">"We can bring our children, our mothers, our fathers — and there is something for everyone."</p>
+        <div class="scroller-card-n">Dr. Shefali <span>· Clinical Psychologist · Best-selling Author</span></div>
       </div>
       <div class="scroller-card">
-        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/d602fbfa04/mvu_about_photogrid_3.jpg" alt=""></div>
-        <p class="scroller-card-q">"I released 15 kilograms and ended a toxic marriage in 15 days. I got a whole life reset — and a global family I never expected."</p>
-        <div class="scroller-card-n">Danielle Ruffin <span>· United States</span></div>
-      </div>
-      <div class="scroller-card">
-        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/f9d83c0e6f/mvu_about_photogrid_4.jpg" alt=""></div>
-        <p class="scroller-card-q">"The quality of the people I met blew my mind. Loving, open-minded, with a change-maker mentality. I made 10+ soul siblings I now call best friends."</p>
-        <div class="scroller-card-n">Andra Trita <span>· Romania</span></div>
-      </div>
-      <div class="scroller-card">
-        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/382x374/01af19d93e/mvu_about_photogrid_6.jpg" alt=""></div>
-        <p class="scroller-card-q">"My learning and growth was compressed from 1 year to 10 days. I witnessed a unique form of magic."</p>
-        <div class="scroller-card-n">Kanika Jain <span>· Health Coach, Bahrain</span></div>
-      </div>
-      <div class="scroller-card">
-        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/67270fd7f3/mvu_about_photogrid_7.jpg" alt=""></div>
-        <p class="scroller-card-q">"MVU is one of the best communities I've ever been a part of. The quality of the people is insane."</p>
+        <div class="scroller-card-photo scroller-card-photo--hero"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x848/4f8cb6bf53/fh-adam-roa.webp" alt="Adam Roa"></div>
+        <p class="scroller-card-q">"Mindvalley is one of the best communities I've ever been a part of. The quality of the people is insane."</p>
         <div class="scroller-card-n">Adam Roa <span>· Artist & Poet</span></div>
       </div>
       <div class="scroller-card">
-        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/6e7d690ef1/mvu_about_photogrid_11.jpg" alt=""></div>
+        <div class="scroller-card-photo scroller-card-photo--hero"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/fec4ef0e74/speaker_niraj-naik.webp" alt="Niraj Naik"></div>
+        <p class="scroller-card-q">"I met my mentors, my investors, my first tribe — and my wife. Literally all from one event."</p>
+        <div class="scroller-card-n">Niraj Naik <span>· World's Leading Breathwork Expert</span></div>
+      </div>
+      <div class="scroller-card scroller-card--quote">
+        <div class="scroller-card-mark">"</div>
+        <p class="scroller-card-q">"I released 15 kilograms and ended a toxic marriage in 15 days. A whole life reset — and a global family I never expected."</p>
+        <div class="scroller-card-n">Danielle Ruffin <span>· United States · First-time attendee</span></div>
+      </div>
+      <div class="scroller-card scroller-card--quote">
+        <div class="scroller-card-mark">"</div>
+        <p class="scroller-card-q">"I compressed one year of growth into 1 month. If you want to accelerate your life, your business, your career — MVU is where you have to go."</p>
+        <div class="scroller-card-n">Waleska Cerpa <span>· Mexico</span></div>
+      </div>
+      <div class="scroller-card scroller-card--quote">
+        <div class="scroller-card-mark">"</div>
+        <p class="scroller-card-q">"The quality of the people blew my mind. I now have ten soul sisters and brothers I can honestly call best friends forever."</p>
+        <div class="scroller-card-n">Andra Trita <span>· Bucharest, Romania</span></div>
+      </div>
+      <div class="scroller-card scroller-card--quote">
+        <div class="scroller-card-mark">"</div>
         <p class="scroller-card-q">"Mindvalley is radically and successfully breaking the mold of what learning looks like. One of the most important social movements in education."</p>
         <div class="scroller-card-n">Akira Chan <span>· Founder, RARE Media</span></div>
       </div>
-      <div class="scroller-card">
-        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/382x376/7585e3ce6c/mvu_about_photogrid_10.png" alt=""></div>
+      <div class="scroller-card scroller-card--quote">
+        <div class="scroller-card-mark">"</div>
         <p class="scroller-card-q">"I experienced massive transformation in just a few weeks. The community has such high vibration I could physically feel it."</p>
         <div class="scroller-card-n">Kris Konsap <span>· Entrepreneur, Estonia</span></div>
-      </div>
-      <div class="scroller-card">
-        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/382x374/be615027ac/mvu_about_photogrid_8.png" alt=""></div>
-        <p class="scroller-card-q">"It exceeded all my expectations and opened my eyes to boundless possibilities that arise when individuals come together with shared purpose."</p>
-        <div class="scroller-card-n">Martin Garbers <span>· Leadership Coach, Germany</span></div>
       </div>
     </div>
   </div>
