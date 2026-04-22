@@ -1,0 +1,4567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mindvalley U 2026 — Tallinn, Estonia · July 20 – August 2</title>
+<meta name="description" content="14 days. One medieval city. 1,800 extraordinary humans. The right people change everything. From $1,599.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6,100..900&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════
+     MVU 2026 — V5 (Figma Config structure)
+     ═══════════════════════════════════════════ */
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #0f0e0c;
+    --ink-soft: #1a1915;
+    --graphite: #26231f;
+    --stone: #6e6860;
+    --stone-light: #b8b2a8;
+    --stone-dim: #494540;
+    --cream: #faf8f3;
+    --paper: #f3eee3;
+    --paper-deep: #ebe4d6;
+    --mist: #e4ddd0;
+    --white: #ffffff;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --rust: #8b3a2a;
+    --purple: #7A12D4;
+    --purple-light: #9B3DF2;
+
+    --display: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+    --serif: 'Google Sans Flex', -apple-system, sans-serif;
+    --mono: 'Google Sans Flex', -apple-system, sans-serif;
+
+    /* Future Human accent */
+    --sage: #3d7a5c;
+    --sage-light: #6ea687;
+
+    --max: 1240px;
+    --banner-h: 40px;
+    --nav-h: 64px;
+  }
+
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 430;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: 17px;
+    padding-top: calc(var(--banner-h) + var(--nav-h));
+  }
+
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+
+  ::selection { background: var(--gold-light); color: var(--ink); }
+
+  /* ═══════════════════════════════════════════
+     TYPOGRAPHY SYSTEM
+     ═══════════════════════════════════════════ */
+
+  .display-xl {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 720;
+    font-size: clamp(44px, 6.2vw, 92px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .display-lg {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 700;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .display-md {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 700;
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  .display-sm {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 680;
+    font-size: clamp(24px, 2.8vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+  }
+
+  .serif-lg {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .eyebrow--dim { color: var(--stone-dim); }
+
+  em.accent {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    color: var(--rust);
+    letter-spacing: -0.01em;
+  }
+
+  .on-dark em.accent { color: var(--gold-light); }
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     ═══════════════════════════════════════════ */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 999px;
+    font-family: var(--display);
+    font-variation-settings: 'wght' 650;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn--primary { background: var(--purple); color: var(--white); }
+  .btn--primary:hover { background: var(--purple-light); transform: translateY(-1px); }
+
+  .btn--ink { background: var(--ink); color: var(--cream); }
+  .btn--ink:hover { background: var(--ink-soft); transform: translateY(-1px); }
+
+  .btn--cream { background: var(--cream); color: var(--ink); }
+  .btn--cream:hover { background: var(--paper); }
+
+  .btn--gold { background: var(--gold); color: var(--ink); }
+  .btn--gold:hover { background: var(--gold-light); }
+
+  .btn--ghost-light { color: var(--cream); border: 1px solid rgba(250, 248, 243, 0.28); }
+  .btn--ghost-light:hover { border-color: var(--cream); background: rgba(250, 248, 243, 0.06); }
+
+  .btn--ghost-dark { color: var(--ink); border: 1px solid rgba(15, 14, 12, 0.2); }
+  .btn--ghost-dark:hover { border-color: var(--ink); background: rgba(15, 14, 12, 0.04); }
+
+  .btn .sub {
+    opacity: 0.8;
+    font-size: 11px;
+    font-variation-settings: 'wght' 500;
+    margin-left: 4px;
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-variation-settings: 'wght' 550;
+    color: var(--ink);
+    transition: gap 0.2s;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+  .link-arrow::after { content: '→'; transition: transform 0.2s; }
+  .link-arrow:hover::after { transform: translateX(3px); }
+  .link-arrow.on-dark { color: var(--cream); border-color: var(--gold); }
+
+  /* ═══════════════════════════════════════════
+     URGENCY BANNER + NAV
+     ═══════════════════════════════════════════ */
+
+  .banner {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 101;
+    height: var(--banner-h);
+    background: var(--ink);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.22);
+  }
+
+  .banner-track {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    white-space: nowrap;
+    animation: banner-scroll 45s linear infinite;
+  }
+
+  .banner-track span.dot {
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  @keyframes banner-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .nav {
+    position: fixed;
+    top: var(--banner-h); left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    background: rgba(250, 248, 243, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(15, 14, 12, 0.08);
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 32px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    font-size: 15px;
+    font-variation-settings: 'wght' 600;
+    letter-spacing: -0.01em;
+  }
+
+  .logo img { height: 18px; }
+
+  .logo-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 500;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+    font-variation-settings: 'wght' 500;
+    color: var(--ink);
+    transition: opacity 0.2s;
+  }
+  .nav-menu a:hover { opacity: 0.6; }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-countdown {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: right;
+    border-right: 1px solid rgba(15, 14, 12, 0.12);
+    padding-right: 20px;
+  }
+
+  .nav-countdown-label {
+    font-family: var(--mono, 'Google Sans Flex');
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-dim);
+  }
+
+  .nav-countdown-timer {
+    font-family: var(--mono, 'Google Sans Flex');
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--rust);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .nav-cta {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink-soft); }
+
+  .banner-track strong {
+    color: var(--cream);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .nav-toggle {
+    display: none;
+    width: 32px;
+    height: 32px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+  .nav-toggle span {
+    height: 1.5px;
+    background: var(--ink);
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO — Figma Config style direct
+     ═══════════════════════════════════════════ */
+
+  .hero {
+    position: relative;
+    min-height: calc(100vh - var(--banner-h) - var(--nav-h));
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--ink);
+    padding: 80px 32px 60px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,14,12,0.25) 0%, rgba(15,14,12,0) 30%, rgba(15,14,12,0) 60%, rgba(15,14,12,0.92) 100%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--max);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 28px;
+  }
+
+  .hero-meta .dot {
+    display: inline-block;
+    width: 3px; height: 3px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin: 0 14px;
+    vertical-align: middle;
+  }
+
+  .hero-title {
+    color: var(--cream);
+    margin-bottom: 28px;
+    max-width: 960px;
+  }
+
+  .hero-title em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold-light);
+    letter-spacing: -0.025em;
+  }
+
+  .hero-sub {
+    font-family: var(--display);
+    font-size: clamp(22px, 2.6vw, 32px);
+    font-style: normal;
+    font-variation-settings: 'wght' 500;
+    line-height: 1.35;
+    color: var(--cream);
+    max-width: 680px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .hero-facts {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .hero-fact {
+    font-size: 16px;
+    font-variation-settings: 'wght' 500;
+    color: var(--cream);
+  }
+
+  .hero-fact strong {
+    color: var(--gold-light);
+    font-variation-settings: 'wght' 700;
+    margin-right: 4px;
+  }
+
+  .hero-fact-sep {
+    width: 3px; height: 3px;
+    background: rgba(250, 248, 243, 0.35);
+    border-radius: 50%;
+  }
+
+  .hero-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-virtual-note {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(250, 248, 243, 0.6);
+    margin-top: 20px;
+  }
+
+  .hero-virtual-note a { color: var(--gold-light); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+
+  /* ═══════════════════════════════════════════
+     PRESS LOGO BAR
+     ═══════════════════════════════════════════ */
+
+  .press {
+    background: var(--ink);
+    padding: 24px 32px;
+    border-top: 1px solid rgba(250, 248, 243, 0.08);
+  }
+
+  .press-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .press-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(250, 248, 243, 0.55);
+  }
+
+  .press-list {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  .press-list li {
+    display: flex;
+    align-items: center;
+  }
+
+  .press-list li img {
+    height: 22px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .press-list li:hover img {
+    opacity: 1;
+  }
+
+  /* ═══════════════════════════════════════════
+     TRUST STATS
+     ═══════════════════════════════════════════ */
+
+  .trust {
+    background: var(--cream);
+    padding: 56px 32px;
+    border-bottom: 1px solid rgba(15, 14, 12, 0.06);
+  }
+
+  .trust-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+
+  .trust-cell {
+    text-align: center;
+    padding: 0 8px;
+  }
+
+  .trust-num {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 700;
+    font-size: clamp(36px, 3.6vw, 52px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .trust-num em {
+    font-family: var(--display);
+    font-style: normal;
+    font-variation-settings: 'wght' 500;
+    font-size: 0.5em;
+    color: var(--ink);
+    margin-left: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  .trust-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-dim);
+  }
+
+  /* ═══════════════════════════════════════════
+     SECTION BASE
+     ═══════════════════════════════════════════ */
+
+  section { position: relative; overflow: hidden; }
+
+  .section { padding: 120px 32px; }
+
+  .section--ink { background: var(--ink); color: var(--cream); }
+  .section--graphite { background: var(--graphite); color: var(--cream); }
+  .section--cream { background: var(--cream); color: var(--ink); }
+  .section--paper { background: var(--paper); color: var(--ink); }
+  .section--paper-deep { background: var(--paper-deep); color: var(--ink); }
+
+  .container {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  .container-narrow { max-width: 920px; margin: 0 auto; }
+  .container-text { max-width: 640px; margin: 0 auto; }
+
+  /* ═══════════════════════════════════════════
+     OPENER (tension)
+     ═══════════════════════════════════════════ */
+
+  .opener {
+    background: var(--cream);
+    padding: 120px 32px;
+    text-align: center;
+    border-bottom: 1px solid rgba(15, 14, 12, 0.06);
+  }
+
+  .opener-inner { max-width: 820px; margin: 0 auto; }
+
+  .opener .eyebrow { margin-bottom: 28px; color: var(--stone-dim); }
+
+  .opener-q {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(28px, 4.2vw, 52px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .opener-q em { font-style: normal; color: var(--rust); }
+
+  .opener-body {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--stone-dim);
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* ═══════════════════════════════════════════
+     PROOF (Regan)
+     ═══════════════════════════════════════════ */
+
+  .proof {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 140px 32px;
+  }
+
+  .proof-inner { max-width: var(--max); margin: 0 auto; }
+
+  .proof-header { max-width: 900px; margin: 0 auto 72px; text-align: center; }
+  .proof-header .eyebrow { margin-bottom: 20px; color: var(--gold); }
+  .proof-header h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold-light);
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .proof-photo {
+    position: sticky;
+    top: calc(var(--banner-h) + var(--nav-h) + 40px);
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--graphite);
+    position: relative;
+  }
+
+  .proof-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(15%);
+  }
+
+  .proof-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,14,12,0.3) 0%, rgba(15,14,12,0) 30%, rgba(15,14,12,0) 60%, rgba(15,14,12,0.88) 100%);
+  }
+
+  .proof-photo-caption {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    z-index: 2;
+  }
+
+  .proof-photo-caption-name {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--cream);
+    letter-spacing: -0.005em;
+    margin-bottom: 4px;
+  }
+
+  .proof-photo-caption-role {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .proof-photo-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    padding: 6px 12px;
+    background: rgba(15, 14, 12, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .proof-body h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(30px, 3.8vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--cream);
+    margin-bottom: 40px;
+    max-width: 620px;
+  }
+
+  .proof-body p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(250, 248, 243, 0.78);
+    margin-bottom: 22px;
+    max-width: 600px;
+  }
+
+  .proof-body p em, .proof-body p i {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 1.05em;
+    color: var(--cream);
+  }
+
+  .proof-body p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 4.5em;
+    float: left;
+    line-height: 0.85;
+    margin: 4px 14px 0 -2px;
+    color: var(--gold-light);
+  }
+
+  .proof-pull {
+    margin: 40px 0;
+    padding: 4px 0 4px 28px;
+    border-left: 2px solid var(--gold);
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(22px, 2.8vw, 32px);
+    line-height: 1.3;
+    color: var(--cream);
+  }
+
+  /* ═══════════════════════════════════════════
+     ALUMNI STRIP
+     ═══════════════════════════════════════════ */
+
+  .strip {
+    background: var(--graphite);
+    color: var(--cream);
+    padding: 100px 32px;
+    border-top: 1px solid rgba(250, 248, 243, 0.08);
+  }
+
+  .strip-inner { max-width: var(--max); margin: 0 auto; }
+
+  .strip-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .strip-header .eyebrow { margin-bottom: 16px; color: var(--gold); }
+  .strip-header h3 {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(28px, 3.4vw, 44px);
+    color: var(--cream);
+  }
+
+  .strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(250, 248, 243, 0.08);
+    border: 1px solid rgba(250, 248, 243, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .strip-cell {
+    background: var(--graphite);
+    padding: 36px 28px;
+    transition: background 0.2s;
+  }
+
+  .strip-cell:hover { background: #302c26; }
+
+  .strip-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    filter: grayscale(15%);
+    transition: filter 0.3s;
+  }
+  .strip-cell:hover .strip-photo { filter: grayscale(0%); }
+
+  .strip-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+  .strip-name {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    font-size: 19px;
+    letter-spacing: -0.018em;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .strip-arc {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .strip-body {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(250, 248, 243, 0.85);
+    padding-top: 12px;
+    border-top: 1px solid rgba(250, 248, 243, 0.1);
+  }
+
+  /* ═══════════════════════════════════════════
+     WHATIS — what MVU actually is
+     ═══════════════════════════════════════════ */
+
+  .whatis {
+    background: var(--cream);
+    padding: 140px 32px;
+  }
+
+  .whatis-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .whatis-visual {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  .whatis-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+  .whatis-text .eyebrow { margin-bottom: 24px; color: var(--stone-dim); }
+
+  .whatis-text h2 {
+    margin-bottom: 28px;
+    color: var(--ink);
+  }
+
+  .whatis-text h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .whatis-text p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--stone-dim);
+    margin-bottom: 20px;
+    max-width: 560px;
+  }
+
+  .whatis-text p em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 1.05em;
+    color: var(--ink);
+  }
+
+  .whatis-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  /* ═══════════════════════════════════════════
+     TESTIMONIAL SCROLLER
+     ═══════════════════════════════════════════ */
+
+  .scroller {
+    background: var(--paper);
+    padding: 120px 0;
+    overflow: hidden;
+  }
+
+  .scroller-head {
+    max-width: 820px;
+    margin: 0 auto 56px;
+    text-align: center;
+    padding: 0 32px;
+  }
+
+  .scroller-head .eyebrow { color: var(--stone-dim); margin-bottom: 16px; }
+
+  .scroller-head h2 em {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 500;
+    color: var(--rust);
+  }
+
+  .scroller-track-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 32px 40px;
+    scrollbar-width: thin;
+  }
+
+  .scroller-track-wrap::-webkit-scrollbar { height: 6px; }
+  .scroller-track-wrap::-webkit-scrollbar-track { background: var(--mist); border-radius: 3px; }
+  .scroller-track-wrap::-webkit-scrollbar-thumb { background: var(--stone); border-radius: 3px; }
+
+  .scroller-track {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 4px;
+  }
+
+  .scroller-card {
+    flex: 0 0 360px;
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 20px rgba(15, 14, 12, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .scroller-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(15, 14, 12, 0.08);
+  }
+
+  .scroller-card-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--mist);
+  }
+
+  .scroller-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .scroller-card-q {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 450;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .scroller-card-n {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    font-size: 14px;
+    color: var(--ink);
+    padding-top: 16px;
+    border-top: 1px solid rgba(15, 14, 12, 0.1);
+  }
+
+  .scroller-card-n span {
+    font-variation-settings: 'wght' 420;
+    color: var(--stone-dim);
+    font-size: 13px;
+  }
+
+  /* ═══════════════════════════════════════════
+     AFTERMOVIE
+     ═══════════════════════════════════════════ */
+
+  .aftermovie {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 140px 32px;
+  }
+
+  .aftermovie-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .aftermovie-head {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .aftermovie-head .eyebrow { color: var(--gold); margin-bottom: 16px; }
+
+  .aftermovie-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold-light);
+  }
+
+  .aftermovie-frame {
+    position: relative;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  }
+
+  .aftermovie-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+  .aftermovie-cap {
+    text-align: center;
+    margin-top: 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250, 248, 243, 0.55);
+  }
+
+  /* ═══════════════════════════════════════════
+     RHYTHM (day rhythm)
+     ═══════════════════════════════════════════ */
+
+  .rhythm { background: var(--cream); padding: 140px 32px; }
+
+  .rhythm-inner { max-width: var(--max); margin: 0 auto; }
+
+  .rhythm-head {
+    max-width: 820px;
+    margin: 0 auto 64px;
+    text-align: center;
+  }
+
+  .rhythm-head .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .rhythm-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .rhythm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(15, 14, 12, 0.08);
+    border: 1px solid rgba(15, 14, 12, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .rhythm-card {
+    background: var(--cream);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.2s;
+  }
+
+  .rhythm-card:hover { background: var(--paper); }
+
+  .rhythm-card-photo {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    background: var(--mist);
+  }
+
+  .rhythm-card-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  .rhythm-card-time {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .rhythm-card h3 {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .rhythm-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--stone-dim);
+  }
+
+  /* ═══════════════════════════════════════════
+     SCHEDULE PREVIEW — sample 14-day
+     ═══════════════════════════════════════════ */
+
+  .schedule { background: var(--paper); padding: 140px 32px; }
+
+  .schedule-inner { max-width: var(--max); margin: 0 auto; }
+
+  .schedule-head {
+    max-width: 820px;
+    margin: 0 auto 56px;
+    text-align: center;
+  }
+
+  .schedule-head .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .schedule-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .schedule-head p {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 19px;
+    color: var(--stone-dim);
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 6px;
+    margin-bottom: 40px;
+    padding: 32px;
+    background: var(--cream);
+    border: 1px solid rgba(15, 14, 12, 0.08);
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+
+  .schedule-day {
+    min-width: 68px;
+    padding: 14px 8px;
+    background: var(--paper);
+    border-radius: 2px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .schedule-day.highlight { background: var(--ink); color: var(--cream); }
+  .schedule-day.weekend { background: var(--paper-deep); }
+
+  .schedule-day-num {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 620;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .schedule-day.highlight .schedule-day-num { color: var(--gold-light); }
+
+  .schedule-day-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    font-weight: 500;
+  }
+
+  .schedule-day.highlight .schedule-day-label { color: rgba(250, 248, 243, 0.6); }
+
+  .schedule-tracks {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .schedule-track {
+    padding: 20px;
+    background: var(--cream);
+    border: 1px solid rgba(15, 14, 12, 0.08);
+    border-radius: 4px;
+  }
+
+  .schedule-track-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .schedule-track-title {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .schedule-track-body {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--stone-dim);
+  }
+
+  .schedule-note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--stone-dim);
+    margin-top: 32px;
+  }
+
+  .schedule-proof {
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--cream);
+    border: 1px solid rgba(15, 14, 12, 0.08);
+    border-radius: 4px;
+  }
+
+  .schedule-proof-head {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .schedule-proof-head .eyebrow { display: block; margin-bottom: 10px; }
+
+  .schedule-proof-head p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--stone-dim);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .schedule-proof-img {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+
+  .schedule-proof-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Step labels — "Step 01 Choose your track" etc */
+  .step-label {
+    text-align: center;
+    margin: 48px 0 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(15, 14, 12, 0.08);
+  }
+
+  .step-label:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .step-num {
+    display: inline-block;
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .step-title {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 700;
+    font-size: clamp(24px, 3vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.028em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .step-sub {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 450;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--stone-dim);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* Sample day timeline */
+  .day-timeline {
+    background: var(--cream);
+    border: 1px solid rgba(15, 14, 12, 0.08);
+    border-radius: 4px;
+    padding: 40px 32px 32px;
+    margin-bottom: 48px;
+  }
+
+  .day-timeline-head {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .day-timeline-head .eyebrow { margin-bottom: 10px; display: block; }
+
+  .day-timeline-title {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 650;
+    font-size: clamp(22px, 2.4vw, 30px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .day-timeline-track {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+
+  .day-card {
+    background: var(--paper);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 3px solid var(--gold);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    min-height: 0;
+  }
+
+  .day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(15, 14, 12, 0.08);
+  }
+
+  .day-card-time {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 700;
+    font-size: 22px;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+
+  .day-card-kind {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 500;
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 4px;
+  }
+
+  .day-card-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--mist);
+    filter: grayscale(15%);
+    margin-top: 4px;
+  }
+
+  .day-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .day-card-who {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  .day-card-title {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 500;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: var(--stone-dim);
+    font-style: italic;
+  }
+
+  .day-timeline-foot {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(15, 14, 12, 0.08);
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--stone-dim);
+  }
+
+  .day-timeline-foot span {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-right: 8px;
+  }
+
+  .day-timeline-foot strong {
+    color: var(--ink);
+    font-variation-settings: 'wght' 500;
+  }
+
+  /* Tracks label + faces */
+  .tracks-label {
+    text-align: center;
+    margin: 8px 0 20px;
+  }
+
+  .schedule-track {
+    background: var(--cream);
+    border: 1px solid rgba(15, 14, 12, 0.08);
+    border-top: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .schedule-track.track-1 { border-top-color: #5d6b54; }
+  .schedule-track.track-2 { border-top-color: #a84f5c; }
+  .schedule-track.track-3 { border-top-color: var(--gold); }
+  .schedule-track.track-4 { border-top-color: #3a6d7f; }
+  .schedule-track.track-5 { border-top-color: var(--purple); }
+
+  .schedule-track-body em {
+    font-style: italic;
+    color: var(--ink);
+    display: block;
+    margin-top: 6px;
+    font-family: var(--display);
+    font-variation-settings: 'wght' 500;
+  }
+
+  .track-faces {
+    display: flex;
+    gap: -8px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(15, 14, 12, 0.08);
+  }
+
+  .track-face {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--cream);
+    margin-left: -8px;
+    background: var(--mist);
+    filter: grayscale(25%);
+    transition: filter 0.3s;
+  }
+
+  .track-face:first-child { margin-left: 0; }
+
+  .schedule-track:hover .track-face { filter: grayscale(0%); }
+
+  .track-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* ═══════════════════════════════════════════
+     ENEMY — clarity
+     ═══════════════════════════════════════════ */
+
+  .enemy {
+    background: var(--graphite);
+    color: var(--cream);
+    padding: 140px 32px;
+  }
+
+  .enemy-inner { max-width: var(--max); margin: 0 auto; }
+
+  .enemy-head {
+    margin-bottom: 56px;
+  }
+
+  .enemy-head .eyebrow { color: var(--gold); margin-bottom: 20px; }
+
+  .enemy-head h2 {
+    color: var(--cream);
+    max-width: 820px;
+  }
+
+  .enemy-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold-light);
+  }
+
+  .enemy-list {
+    border-top: 1px solid rgba(250, 248, 243, 0.12);
+  }
+
+  .enemy-row {
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(250, 248, 243, 0.12);
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 48px;
+    align-items: center;
+    transition: padding 0.3s ease;
+  }
+
+  .enemy-row:hover { padding-left: 12px; }
+
+  .enemy-not {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    font-size: clamp(26px, 3.8vw, 52px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    color: var(--cream);
+  }
+
+  .enemy-because {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(16px, 1.4vw, 20px);
+    line-height: 1.45;
+    color: var(--stone-light);
+    max-width: 480px;
+  }
+
+  .enemy-final {
+    padding: 40px 0 0;
+    text-align: center;
+  }
+
+  .enemy-final-text {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 620;
+    font-size: clamp(36px, 5.2vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+  }
+
+  .enemy-final-text em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold-light);
+  }
+
+  /* ═══════════════════════════════════════════
+     TALLINN
+     ═══════════════════════════════════════════ */
+
+  .tallinn { background: var(--cream); padding: 140px 32px; }
+
+  .tallinn-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .tallinn-text .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .tallinn-text h2 {
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+
+  .tallinn-text h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .tallinn-text p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--stone-dim);
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
+
+  .tallinn-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 480px;
+  }
+
+  .tallinn-fact {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(15, 14, 12, 0.08);
+    align-items: baseline;
+  }
+
+  .tallinn-fact:last-child { border-bottom: none; }
+
+  .tallinn-fact-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .tallinn-fact-text {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .tallinn-visual {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.6fr 1fr;
+    gap: 8px;
+    aspect-ratio: auto;
+  }
+
+  .tallinn-photo {
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--mist);
+    position: relative;
+    min-height: 0;
+    min-width: 0;
+  }
+
+  .tallinn-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  .tallinn-photo:hover img { transform: scale(1.03); }
+
+  .tallinn-photo--main {
+    aspect-ratio: 12 / 5;
+  }
+
+  .tallinn-badge {
+    position: absolute;
+    bottom: 14px; left: 14px;
+    padding: 5px 10px;
+    background: rgba(15, 14, 12, 0.82);
+    backdrop-filter: blur(8px);
+    border-radius: 100px;
+    color: var(--cream);
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════════════════════
+     ROOM (3 personas)
+     ═══════════════════════════════════════════ */
+
+  .room { background: var(--paper); padding: 140px 32px; }
+
+  .room-inner { max-width: var(--max); margin: 0 auto; }
+
+  .room-head {
+    max-width: 820px;
+    margin: 0 auto 64px;
+    text-align: center;
+  }
+
+  .room-head .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .room-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .room-head p {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 20px;
+    color: var(--stone-dim);
+    margin-top: 16px;
+    line-height: 1.45;
+  }
+
+  .room-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .room-card {
+    background: var(--cream);
+    padding: 40px 32px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .room-card:hover {
+    border-color: rgba(201, 168, 76, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(15, 14, 12, 0.06);
+  }
+
+  .room-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    color: var(--stone);
+  }
+
+  .room-name {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 620;
+    font-size: 26px;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+
+  .room-name em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .room-body {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--stone-dim);
+    flex: 1;
+  }
+
+  .room-line {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 17px;
+    color: var(--ink);
+    padding-top: 14px;
+    border-top: 1px solid rgba(15, 14, 12, 0.1);
+  }
+
+  .room-aside {
+    max-width: 760px;
+    margin: 48px auto 0;
+    padding: 32px 40px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .room-aside-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .room-aside-text {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.35;
+    color: var(--cream);
+  }
+
+  .room-aside-text em { color: var(--gold-light); }
+
+  /* ═══════════════════════════════════════════
+     STAGE (community stage)
+     ═══════════════════════════════════════════ */
+
+  .stage {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 140px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stage::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 60%; height: 150%;
+    background: radial-gradient(ellipse, rgba(201, 168, 76, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .stage-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 2; }
+
+  .stage-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+
+  .stage-photo {
+    position: relative;
+    width: 100%;
+    margin-bottom: 56px;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 21/9;
+    background: var(--ink-soft);
+  }
+
+  .stage-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .stage-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,14,12,0) 50%, rgba(15,14,12,0.8) 100%);
+  }
+
+  .stage-photo-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    z-index: 2;
+    font-family: var(--display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .stage-top-l .eyebrow { color: var(--gold); margin-bottom: 20px; }
+
+  .stage-top-l h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold-light);
+  }
+
+  .stage-top-r {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 480px;
+  }
+
+  .stage-lede {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--cream);
+  }
+
+  .stage-body {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--stone-light);
+  }
+
+  .stage-body em {
+    font-family: var(--serif);
+    font-style: normal;
+    color: var(--cream);
+  }
+
+  .stage-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    background: rgba(250, 248, 243, 0.08);
+    border: 1px solid rgba(250, 248, 243, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .stage-step {
+    background: var(--ink);
+    padding: 28px 22px;
+    transition: background 0.2s;
+  }
+
+  .stage-step:hover { background: var(--ink-soft); }
+
+  .stage-step-num {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .stage-step-title {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 580;
+    font-size: 16px;
+    color: var(--cream);
+    margin-bottom: 8px;
+    letter-spacing: -0.015em;
+  }
+
+  .stage-step-sub {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--stone);
+  }
+
+  .stage-cta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    border-top: 1px solid rgba(250, 248, 243, 0.1);
+  }
+
+  .stage-cta-line {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.35;
+    color: var(--cream);
+    max-width: 520px;
+  }
+
+  .stage-cta-line em { color: var(--gold-light); }
+
+  /* ═══════════════════════════════════════════
+     FAMILY
+     ═══════════════════════════════════════════ */
+
+  .family { background: var(--cream); padding: 140px 32px; }
+
+  .family-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .family-visual {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  .family-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+  .family-ages {
+    position: absolute;
+    bottom: 20px; left: 20px; right: 20px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .family-age {
+    padding: 5px 12px;
+    background: rgba(15, 14, 12, 0.8);
+    backdrop-filter: blur(8px);
+    color: var(--cream);
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-radius: 100px;
+  }
+
+  .family-text .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .family-text h2 {
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+
+  .family-text h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .family-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--stone-dim);
+    margin-bottom: 16px;
+  }
+
+  .family-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+    padding: 16px 0;
+    border-top: 1px solid rgba(15, 14, 12, 0.08);
+    border-bottom: 1px solid rgba(15, 14, 12, 0.08);
+  }
+
+  .family-hl-num {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .family-hl-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-dim);
+    line-height: 1.4;
+  }
+
+  .family-partner {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 18px;
+    background: var(--paper);
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
+  .family-partner img { height: 22px; width: auto; opacity: 0.7; }
+
+  .family-partner span {
+    font-size: 12px;
+    color: var(--stone-dim);
+    line-height: 1.5;
+  }
+
+  .family-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ═══════════════════════════════════════════
+     FACULTY — Figma Config B&W grid
+     ═══════════════════════════════════════════ */
+
+  .faculty {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 140px 32px;
+  }
+
+  .faculty-inner { max-width: var(--max); margin: 0 auto; }
+
+  .faculty-head {
+    text-align: center;
+    margin-bottom: 64px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faculty-head .eyebrow { color: var(--gold); margin-bottom: 20px; }
+
+  .faculty-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--gold-light);
+  }
+
+  .faculty-head p {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 19px;
+    color: var(--stone-light);
+    margin-top: 16px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+  }
+
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .faculty-card { display: flex; flex-direction: column; gap: 14px; cursor: pointer; }
+
+  .faculty-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--graphite);
+    filter: grayscale(20%);
+    transition: filter 0.5s ease;
+  }
+
+  .faculty-card:hover .faculty-photo {
+    filter: grayscale(0%);
+  }
+
+  .faculty-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .faculty-name {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    font-size: 18px;
+    letter-spacing: -0.015em;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+
+  .faculty-role {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    line-height: 1.3;
+  }
+
+  .faculty-footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(250, 248, 243, 0.08);
+  }
+
+  /* ═══════════════════════════════════════════
+     VOICES
+     ═══════════════════════════════════════════ */
+
+  .voices {
+    background: var(--paper);
+    padding: 140px 32px;
+  }
+
+  .voices-inner { max-width: var(--max); margin: 0 auto; }
+
+  .voices-head {
+    text-align: center;
+    margin-bottom: 56px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .voices-head .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .voices-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .voices-feature {
+    padding: 48px 56px;
+    background: var(--cream);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: end;
+  }
+
+  .voices-feature-quote {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(24px, 3vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+
+  .voices-attr-name {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 560;
+    font-size: 15px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    text-align: right;
+  }
+
+  .voices-attr-role {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-dim);
+    margin-top: 4px;
+    text-align: right;
+  }
+
+  .voices-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .voice {
+    padding: 28px;
+    background: var(--cream);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .voice-q {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--ink);
+    flex: 1;
+    letter-spacing: -0.005em;
+  }
+
+  .voice-a {
+    padding-top: 16px;
+    border-top: 1px solid rgba(15, 14, 12, 0.08);
+  }
+
+  .voice-name {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 560;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+
+  .voice-role {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-dim);
+    margin-top: 4px;
+  }
+
+  .voice--stat {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .voice--stat .voice-stat-num {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 620;
+    font-size: 64px;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    color: var(--gold-light);
+  }
+
+  .voice--stat .voice-stat-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(250, 248, 243, 0.8);
+    flex: 1;
+  }
+
+  .voice--stat .voice-stat-source {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    padding-top: 16px;
+    border-top: 1px solid rgba(250, 248, 243, 0.1);
+  }
+
+  /* ═══════════════════════════════════════════
+     MATH (40 summers)
+     ═══════════════════════════════════════════ */
+
+  .math {
+    background: var(--paper-deep);
+    padding: 140px 32px;
+  }
+
+  .math-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .math-left .eyebrow { color: var(--stone-dim); margin-bottom: 28px; }
+
+  .math-title {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(40px, 5.6vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+  .math-title em {
+    font-style: normal;
+    color: var(--rust);
+  }
+
+  .math-left p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--stone-dim);
+    max-width: 480px;
+    margin-bottom: 16px;
+  }
+
+  .math-left p em {
+    font-family: var(--serif);
+    font-style: normal;
+    color: var(--ink);
+  }
+
+  .math-callout {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 56px 40px;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .math-callout::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -60%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.12) 0%, transparent 60%);
+  }
+
+  .math-callout-inner { position: relative; z-index: 2; }
+
+  .math-callout-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .math-callout-num {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 620;
+    font-size: clamp(84px, 11vw, 128px);
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+
+  .math-callout-unit {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+  }
+
+  .math-callout-foot {
+    padding-top: 16px;
+    border-top: 1px solid rgba(250, 248, 243, 0.15);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--stone-light);
+  }
+
+  /* ═══════════════════════════════════════════
+     VALUE STACK
+     ═══════════════════════════════════════════ */
+
+  .value {
+    background: var(--cream);
+    padding: 140px 32px;
+  }
+
+  .value-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .value-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .value-head .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .value-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .value-head p {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 19px;
+    color: var(--stone-dim);
+    margin-top: 14px;
+  }
+
+  .value-stack {
+    background: var(--paper);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .value-row {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 24px;
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(15, 14, 12, 0.08);
+    align-items: center;
+  }
+
+  .value-row:last-child { border-bottom: none; }
+
+  .value-row.total {
+    background: var(--ink);
+    color: var(--cream);
+    border-bottom: none;
+    padding: 28px 32px;
+  }
+
+  .value-row.total .value-row-num { color: var(--gold); }
+  .value-row.total .value-row-text { color: var(--cream); }
+  .value-row.total .value-row-price { color: var(--gold-light); font-size: 26px; }
+
+  .value-row.your-price {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 28px 32px;
+  }
+
+  .value-row.your-price .value-row-num { color: var(--ink); }
+  .value-row.your-price .value-row-text strong { color: var(--ink); }
+  .value-row.your-price .value-row-price {
+    color: var(--ink);
+    font-size: 28px;
+  }
+
+  .value-row-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--stone);
+  }
+
+  .value-row-text {
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .value-row-text strong {
+    font-variation-settings: 'wght' 600;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .value-row-text .sub {
+    font-size: 13px;
+    color: var(--stone-dim);
+  }
+
+  .value-row-price {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .value-footnote {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--stone-dim);
+    line-height: 1.65;
+  }
+
+  /* ═══════════════════════════════════════════
+     ANSWERS (objections)
+     ═══════════════════════════════════════════ */
+
+  .answers { background: var(--paper); padding: 140px 32px; }
+
+  .answers-inner { max-width: 1040px; margin: 0 auto; }
+
+  .answers-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .answers-head .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .answers-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .answers-list {
+    border-top: 1px solid rgba(15, 14, 12, 0.12);
+  }
+
+  .answer {
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(15, 14, 12, 0.12);
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .answer-q {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .answer-a {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--stone-dim);
+  }
+
+  .answer-a strong {
+    color: var(--ink);
+    font-variation-settings: 'wght' 560;
+  }
+
+  /* ═══════════════════════════════════════════
+     GUARANTEE
+     ═══════════════════════════════════════════ */
+
+  .guarantee {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 140px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guarantee::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
+  }
+
+  .guarantee-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .guarantee-seal {
+    width: 160px;
+    height: 160px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .guarantee-seal::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    border-radius: 50%;
+  }
+
+  .guarantee-seal-top, .guarantee-seal-bottom {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+  }
+
+  .guarantee-seal-middle {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--gold-light);
+    margin: 6px 0;
+  }
+
+  .guarantee-content .eyebrow { color: var(--gold); margin-bottom: 20px; }
+
+  .guarantee-h {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(26px, 3.4vw, 42px);
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+
+  .guarantee-h strong {
+    font-style: normal;
+    font-family: var(--display);
+    font-variation-settings: 'wght' 600;
+    color: var(--gold-light);
+  }
+
+  .guarantee-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--stone-light);
+    max-width: 540px;
+  }
+
+  .guarantee-sign {
+    margin-top: 24px;
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 15px;
+    color: var(--stone);
+  }
+
+  /* ═══════════════════════════════════════════
+     TICKETS
+     ═══════════════════════════════════════════ */
+
+  .tickets { background: var(--cream); padding: 140px 32px; }
+
+  .tickets-inner { max-width: var(--max); margin: 0 auto; }
+
+  .tickets-head {
+    text-align: center;
+    margin-bottom: 56px;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tickets-head .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .tickets-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .tickets-head p {
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 19px;
+    color: var(--stone-dim);
+    margin-top: 14px;
+    line-height: 1.4;
+  }
+
+  .tickets-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .ticket {
+    background: var(--paper);
+    border-radius: 4px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 440px;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .ticket:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(15, 14, 12, 0.08);
+    border-color: rgba(201, 168, 76, 0.3);
+  }
+
+  .ticket--featured {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .ticket--virtual { background: var(--paper-deep); }
+
+  .ticket-badge {
+    position: absolute;
+    top: 20px; right: 20px;
+    padding: 4px 10px;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 100px;
+  }
+
+  .ticket-tier {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone-dim);
+  }
+
+  .ticket--featured .ticket-tier { color: var(--gold); }
+
+  .ticket-name {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 620;
+    font-size: 24px;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+
+  .ticket--featured .ticket-name { color: var(--cream); }
+
+  .ticket-price {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(15, 14, 12, 0.1);
+  }
+
+  .ticket--featured .ticket-price { border-bottom-color: rgba(250, 248, 243, 0.12); }
+
+  .ticket-price-from {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 6px;
+  }
+
+  .ticket--featured .ticket-price-from { color: var(--stone-light); }
+
+  .ticket-price-amount {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 620;
+    font-size: 40px;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+  }
+
+  .ticket--featured .ticket-price-amount { color: var(--gold-light); }
+
+  .ticket-price-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--stone);
+    margin-top: 6px;
+  }
+
+  .ticket-features {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .ticket-features li {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--stone-dim);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .ticket--featured .ticket-features li { color: var(--stone-light); }
+
+  .ticket-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .ticket-features strong {
+    color: var(--ink);
+    font-variation-settings: 'wght' 560;
+  }
+
+  .ticket--featured .ticket-features strong { color: var(--cream); }
+
+  .ticket-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-family: var(--display);
+    font-variation-settings: 'wght' 580;
+    font-size: 14px;
+    transition: all 0.2s;
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .ticket-cta--outline {
+    color: var(--ink);
+    border: 1px solid rgba(15, 14, 12, 0.22);
+  }
+  .ticket-cta--outline:hover { background: var(--ink); color: var(--cream); }
+
+  .ticket-cta--primary { background: var(--purple); color: var(--white); }
+  .ticket-cta--primary:hover { background: var(--purple-light); }
+
+  .ticket-cta--gold { background: var(--gold); color: var(--ink); }
+  .ticket-cta--gold:hover { background: var(--gold-light); }
+
+  .tickets-note {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--stone-dim);
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════
+     FAQ
+     ═══════════════════════════════════════════ */
+
+  .faq { background: var(--paper-deep); padding: 140px 32px; }
+
+  .faq-inner { max-width: 880px; margin: 0 auto; }
+
+  .faq-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .faq-head .eyebrow { color: var(--stone-dim); margin-bottom: 20px; }
+
+  .faq-head h2 em {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    color: var(--rust);
+  }
+
+  .faq-list {
+    border-top: 1px solid rgba(15, 14, 12, 0.14);
+  }
+
+  .faq-item {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(15, 14, 12, 0.12);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+    align-items: baseline;
+  }
+
+  .faq-num {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    padding-top: 6px;
+  }
+
+  .faq-q {
+    font-family: var(--display);
+    font-variation-settings: 'wght' 580;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  .faq-a {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--stone-dim);
+  }
+
+  /* ═══════════════════════════════════════════
+     FINAL
+     ═══════════════════════════════════════════ */
+
+  .final {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 160px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .final-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.22;
+  }
+
+  .final-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(201, 168, 76, 0.18) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(15,14,12,0.65) 0%, rgba(15,14,12,0.94) 100%);
+  }
+
+  .final-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .final .eyebrow { color: var(--gold); margin-bottom: 32px; }
+
+  .final-line {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+
+  .final-line strong {
+    font-style: normal;
+    font-family: var(--display);
+    font-variation-settings: 'wght' 620;
+    color: var(--gold-light);
+  }
+
+  .final-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--stone-light);
+    max-width: 580px;
+    margin: 0 auto 40px;
+  }
+
+  .final-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .final-note {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  /* ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ */
+
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 56px 32px 40px;
+    border-top: 1px solid rgba(250, 248, 243, 0.08);
+  }
+
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--stone);
+    font-weight: 500;
+  }
+
+  .footer-brand img {
+    height: 18px;
+    filter: brightness(0) invert(1);
+    opacity: 0.55;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .footer-links a {
+    font-size: 12.5px;
+    color: var(--stone);
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--cream); }
+
+  .footer-copy {
+    grid-column: 1 / -1;
+    padding-top: 32px;
+    margin-top: 24px;
+    border-top: 1px solid rgba(250, 248, 243, 0.08);
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--stone-dim);
+  }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════════ */
+
+  @media (max-width: 1024px) {
+    .nav-menu { display: none; }
+    .nav-toggle { display: flex; }
+
+    .trust-inner { grid-template-columns: repeat(3, 1fr); gap: 32px 16px; }
+    .trust-cell:nth-child(4), .trust-cell:nth-child(5) { grid-column: span 1; }
+
+    .section { padding: 100px 24px; }
+    .whatis, .aftermovie, .rhythm, .schedule, .enemy, .tallinn, .room, .stage, .family, .faculty, .voices, .math, .value, .answers, .guarantee, .tickets, .faq, .final, .proof, .strip, .opener, .press { padding: 100px 24px; }
+    .opener { padding: 80px 24px; }
+    .press { padding: 24px 24px; }
+
+    .press-inner { gap: 24px; }
+    .press-list { gap: 28px; }
+
+    .hero-inner { padding: 0; }
+
+    .proof-grid { grid-template-columns: 1fr; gap: 56px; }
+    .proof-photo { position: relative; top: 0; max-width: 420px; }
+
+    .strip-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .whatis-inner, .tallinn-inner, .family-inner, .math-inner { grid-template-columns: 1fr; gap: 48px; }
+
+    .rhythm-grid { grid-template-columns: 1fr; }
+
+    .schedule-grid { grid-template-columns: repeat(7, 1fr); }
+    .schedule-tracks { grid-template-columns: repeat(2, 1fr); }
+
+    .enemy-row { grid-template-columns: 1fr; gap: 12px; }
+    .enemy-row:hover { padding-left: 0; }
+
+    .room-grid { grid-template-columns: 1fr; }
+
+    .stage-top { grid-template-columns: 1fr; gap: 32px; }
+    .stage-flow { grid-template-columns: repeat(2, 1fr); }
+    .stage-cta-row { flex-direction: column; align-items: flex-start; }
+
+    .faculty-grid { grid-template-columns: repeat(4, 1fr); }
+
+    .voices-feature { grid-template-columns: 1fr; gap: 32px; padding: 40px; }
+    .voices-attr-name, .voices-attr-role { text-align: left; }
+    .voices-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .answer { grid-template-columns: 1fr; gap: 16px; }
+
+    .guarantee-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .guarantee-seal { margin: 0 auto; }
+
+    .tickets-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-links { justify-content: flex-start; }
+  }
+
+  @media (max-width: 680px) {
+    :root { --banner-h: 40px; --nav-h: 56px; }
+
+    .banner-track { font-size: 10.5px; gap: 32px; }
+
+    .nav-inner { padding: 0 20px; }
+
+    .section, .hero, .whatis, .aftermovie, .rhythm, .schedule, .enemy, .tallinn, .room, .stage, .family, .faculty, .voices, .math, .value, .answers, .guarantee, .tickets, .faq, .final, .proof, .strip { padding: 80px 20px; }
+    .opener, .trust, .press { padding: 48px 20px; }
+
+    .hero { padding: 64px 20px 48px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { justify-content: center; }
+
+    .trust-inner { grid-template-columns: 1fr 1fr; }
+    .trust-cell { text-align: left; }
+
+    .press-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .press-list { gap: 20px; }
+    .press-list li { font-size: 17px; }
+
+    .strip-grid { grid-template-columns: 1fr; }
+
+    .schedule-grid { grid-template-columns: repeat(7, 1fr); padding: 20px; }
+    .schedule-day { min-width: 0; padding: 10px 4px; }
+    .schedule-day-num { font-size: 16px; }
+    .schedule-tracks { grid-template-columns: 1fr; }
+
+    .faculty-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+    .voices-grid { grid-template-columns: 1fr; }
+
+    .tickets-grid { grid-template-columns: 1fr; }
+
+    .value-row { grid-template-columns: 1fr; gap: 6px; padding: 16px 20px; }
+    .value-row-num { display: none; }
+
+    .final-actions { flex-direction: column; align-items: stretch; width: 100%; }
+    .final-actions .btn { justify-content: center; }
+
+    .footer-links { flex-direction: column; gap: 14px; }
+  }
+
+  @media (max-width: 480px) {
+    .tickets-grid { grid-template-columns: 1fr; }
+    .family-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     URGENCY BANNER + NAV
+     ═══════════════════════════════════════════ -->
+<div class="banner" role="banner">
+  <div class="banner-track">
+    <span>Early bird expires in <strong id="countdown-banner">— : — : — : —</strong></span><span class="dot"></span>
+    <span>Only 79 tickets remain at early bird price</span><span class="dot"></span>
+    <span>Tallinn · July 20 – August 2, 2026</span><span class="dot"></span>
+    <span>Early bird expires in <strong id="countdown-banner-2">— : — : — : —</strong></span><span class="dot"></span>
+    <span>Only 79 tickets remain at early bird price</span><span class="dot"></span>
+    <span>Tallinn · July 20 – August 2, 2026</span><span class="dot"></span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="https://mindvalley.com" class="logo">
+        <img src="https://res.cloudinary.com/mindvalley/image/upload/v1640746015/mvcom/mv-logo.svg" alt="Mindvalley">
+        <span class="logo-tag">U 2026</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#faculty">Speakers</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#family">Youth</a></li>
+        <li><a href="#tickets">Tickets</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <div class="nav-countdown">
+        <span class="nav-countdown-label">Early bird ends in</span>
+        <span class="nav-countdown-timer" id="countdown-nav">— : — : — : —</span>
+      </div>
+      <a href="#tickets" class="nav-cta">Register</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO — Figma Config direct style
+     ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://storyblok-cdn.mindvalley.com/f/60579/2400x1350/647bb148b2/03-01-intro-mvu.webp" alt="">
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-meta">
+      Mindvalley U 2026<span class="dot"></span>Tallinn, Estonia<span class="dot"></span>July 20 – August 2
+    </div>
+
+    <h1 class="display-xl hero-title">The right people<br>change <em>everything.</em></h1>
+
+    <p class="hero-sub">Human connection is the most transformative force on the planet.</p>
+
+    <div class="hero-facts">
+      <div class="hero-fact"><strong>14 days</strong> living together</div>
+      <div class="hero-fact-sep"></div>
+      <div class="hero-fact"><strong>1,800 humans</strong> from 100+ countries</div>
+      <div class="hero-fact-sep"></div>
+      <div class="hero-fact"><strong>89%</strong> report life transformation</div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#tickets" class="btn btn--gold">Register for MVU 2026</a>
+      <a href="#aftermovie" class="btn btn--ghost-light">Watch the film</a>
+    </div>
+
+    <div class="hero-virtual-note">1 week from $1,599 · 2 weeks from $2,799 · In-person open to everyone · Virtual exclusive to Mindvalley members</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PRESS → TRUST (press above numbers, single color)
+     ═══════════════════════════════════════════ -->
+<section class="press">
+  <div class="press-inner">
+    <div class="press-label">As seen in</div>
+    <ul class="press-list">
+      <li><img src="https://a.storyblok.com/f/60579/106x29/edff29df59/logo_forbes.svg" alt="Forbes"></li>
+      <li><img src="https://a.storyblok.com/f/60579/107x31/5d683c5c4d/logo-bbc.svg" alt="BBC"></li>
+      <li><img src="https://a.storyblok.com/f/60579/229x31/4504f459d4/logo_nyt.svg" alt="The New York Times"></li>
+      <li><img src="https://a.storyblok.com/f/60579/178x33/660efad2fd/logo_usa-today.svg" alt="USA Today"></li>
+      <li><img src="https://a.storyblok.com/f/60579/68x33/74c459c6fe/logo_cnn.svg" alt="CNN"></li>
+      <li><img src="https://a.storyblok.com/f/60579/166x33/8cf263ffec/logo_entrepreneur.svg" alt="Entrepreneur"></li>
+      <li><img src="https://a.storyblok.com/f/60579/94x33/85550dbb85/logo-inc.svg" alt="Inc."></li>
+    </ul>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-cell">
+      <div class="trust-num">10<em>yrs</em></div>
+      <div class="trust-label">Of community</div>
+    </div>
+    <div class="trust-cell">
+      <div class="trust-num">10,000<em>+</em></div>
+      <div class="trust-label">Alumni worldwide</div>
+    </div>
+    <div class="trust-cell">
+      <div class="trust-num">100<em>+</em></div>
+      <div class="trust-label">Countries represented</div>
+    </div>
+    <div class="trust-cell">
+      <div class="trust-num">14<em>days</em></div>
+      <div class="trust-label">Full immersion</div>
+    </div>
+    <div class="trust-cell">
+      <div class="trust-num">89<em>%</em></div>
+      <div class="trust-label">Report life change</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     OPENER — tension
+     ═══════════════════════════════════════════ -->
+<section class="opener">
+  <div class="opener-inner">
+    <div class="eyebrow eyebrow--dim">What a room can do</div>
+    <p class="opener-q">The right circle can change<br>the trajectory of your life <em>overnight.</em></p>
+    <p class="opener-body">A single conversation, a single introduction, a single dinner with the right people — and your next ten years look different. Once a year, in one European city, that room assembles.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PROOF — Regan story
+     ═══════════════════════════════════════════ -->
+<section class="proof">
+  <div class="proof-inner">
+    <div class="proof-header">
+      <div class="eyebrow">A story of what's possible</div>
+      <h2 class="display-lg">Regan Hillyer<br>arrived <em>knowing no one.</em></h2>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-photo">
+        <div class="proof-photo-tag">Est. 2018</div>
+        <img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/981d362c58/speaker_regan-hillyer.webp?quality=60&auto=webp&dpr=2&width=auto" alt="Regan Hillyer">
+        <div class="proof-photo-caption">
+          <div class="proof-photo-caption-name">Regan Hillyer</div>
+          <div class="proof-photo-caption-role">Global Manifestation Teacher</div>
+        </div>
+      </div>
+
+      <div class="proof-body">
+        <h3>She'd built a coaching practice. She hadn't built a room.</h3>
+
+        <p>Regan was a coach with a message she believed in — but no global platform, no audience at scale. She booked a ticket alone, didn't know a single person on the attendee list, and flew in carrying the question every first-timer carries: <i>what have I done.</i></p>
+
+        <p>Inside forty-eight hours, she found a room of 1,800 humans hungry to grow. No ego. No posturing. Ready to receive her. She was invited to share her work. She spoke. The room responded in a way no online launch ever had.</p>
+
+        <div class="proof-pull">"The room found her before the world did."</div>
+
+        <p>Today she's one of the most sought-after manifestation coaches working. Global speaker. Mindvalley author reaching millions. She returns every year — because, as she puts it, <i>it's the only place I'm fully myself.</i></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ALUMNI STRIP
+     ═══════════════════════════════════════════ -->
+<section class="strip">
+  <div class="strip-inner">
+    <div class="strip-header">
+      <div class="eyebrow">And Regan isn't the only one</div>
+      <h3>This happens every year.</h3>
+    </div>
+
+    <div class="strip-grid">
+      <div class="strip-cell">
+        <div class="strip-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/fec4ef0e74/speaker_niraj-naik.webp?quality=60&auto=webp&dpr=2&width=auto" alt="Niraj Naik"></div>
+        <div class="strip-name">Niraj Naik</div>
+        <div class="strip-arc">Attendee → SOMA Breathwork</div>
+        <p class="strip-body">"I met my mentors, investors, first tribe — and my wife. All from one event."</p>
+      </div>
+      <div class="strip-cell">
+        <div class="strip-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/41531806bb/speaker_jimmy-naraine.webp?quality=60&auto=webp&dpr=2&width=auto" alt="Jimmy Naraine"></div>
+        <div class="strip-name">Jimmy Naraine</div>
+        <div class="strip-arc">Attendee → Bestselling author</div>
+        <p class="strip-body">MVU gave him the audience that believed before the world caught up.</p>
+      </div>
+      <div class="strip-cell">
+        <div class="strip-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/c2c9dc9191/speaker_dawn_hoang.webp?quality=60&auto=webp&dpr=2&width=auto" alt="Dawn Hoang"></div>
+        <div class="strip-name">Dawn Hoang</div>
+        <div class="strip-arc">Student → Intuitive advisor</div>
+        <p class="strip-body">The room recognised her gift. Today she works with clients across continents.</p>
+      </div>
+      <div class="strip-cell">
+        <div class="strip-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/8db394c502/speaker_john-lee.webp?quality=60&auto=webp&dpr=2&width=auto" alt="John Lee"></div>
+        <div class="strip-name">John Lee</div>
+        <div class="strip-arc">Attendee → Lifelong returnee</div>
+        <p class="strip-body">Found what no conference had given him: depth that lasts for years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     WHAT IS MVU
+     ═══════════════════════════════════════════ -->
+<section class="whatis">
+  <div class="whatis-inner">
+    <div class="whatis-visual">
+      <img src="https://storyblok-cdn.mindvalley.com/f/60579/2400x1350/647bb148b2/03-01-intro-mvu.webp" alt="Mindvalley U community">
+    </div>
+    <div class="whatis-text">
+      <div class="eyebrow">What Mindvalley U actually is</div>
+      <h2 class="display-md">An environment engineered for the conversations that <em>change your life.</em></h2>
+      <p>Each year, Mindvalley takes over one European city for 14 days. Mornings begin with yoga, breathwork, or a run through old town. Days are spent in keynotes, deep dives, and masterminds with the world's most sought-after teachers.</p>
+      <p>Evenings are dinners, fireside stories, rooftop parties — and the late-night conversations that go further than any of us planned. It's not a conference. It's not a retreat. <em>It's a campus</em> — for adults who believe who they're around determines who they become.</p>
+      <div class="whatis-actions">
+        <a href="#schedule" class="link-arrow">See the 14-day rhythm</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIAL SCROLLER — real attendees
+     ═══════════════════════════════════════════ -->
+<section class="scroller">
+  <div class="scroller-head">
+    <div class="eyebrow eyebrow--dim">What 10,000 alumni say</div>
+    <h2 class="display-sm">Life — <em>completely different</em> after Tallinn.</h2>
+  </div>
+  <div class="scroller-track-wrap">
+    <div class="scroller-track">
+      <div class="scroller-card">
+        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/800x780/71669a4b62/mvu_about_photogrid_5.jpg" alt=""></div>
+        <p class="scroller-card-q">"I compressed one year of growth into 1 month. If you want to accelerate your life, business and career — MVU is where you have to go."</p>
+        <div class="scroller-card-n">Waleska Cerpa <span>· Mexico</span></div>
+      </div>
+      <div class="scroller-card">
+        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/d602fbfa04/mvu_about_photogrid_3.jpg" alt=""></div>
+        <p class="scroller-card-q">"I released 15 kilograms and ended a toxic marriage in 15 days. I got a whole life reset — and a global family I never expected."</p>
+        <div class="scroller-card-n">Danielle Ruffin <span>· United States</span></div>
+      </div>
+      <div class="scroller-card">
+        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/f9d83c0e6f/mvu_about_photogrid_4.jpg" alt=""></div>
+        <p class="scroller-card-q">"The quality of the people I met blew my mind. Loving, open-minded, with a change-maker mentality. I made 10+ soul siblings I now call best friends."</p>
+        <div class="scroller-card-n">Andra Trita <span>· Romania</span></div>
+      </div>
+      <div class="scroller-card">
+        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/382x374/01af19d93e/mvu_about_photogrid_6.jpg" alt=""></div>
+        <p class="scroller-card-q">"My learning and growth was compressed from 1 year to 10 days. I witnessed a unique form of magic."</p>
+        <div class="scroller-card-n">Kanika Jain <span>· Health Coach, Bahrain</span></div>
+      </div>
+      <div class="scroller-card">
+        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/67270fd7f3/mvu_about_photogrid_7.jpg" alt=""></div>
+        <p class="scroller-card-q">"MVU is one of the best communities I've ever been a part of. The quality of the people is insane."</p>
+        <div class="scroller-card-n">Adam Roa <span>· Artist & Poet</span></div>
+      </div>
+      <div class="scroller-card">
+        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/6e7d690ef1/mvu_about_photogrid_11.jpg" alt=""></div>
+        <p class="scroller-card-q">"Mindvalley is radically and successfully breaking the mold of what learning looks like. One of the most important social movements in education."</p>
+        <div class="scroller-card-n">Akira Chan <span>· Founder, RARE Media</span></div>
+      </div>
+      <div class="scroller-card">
+        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/382x376/7585e3ce6c/mvu_about_photogrid_10.png" alt=""></div>
+        <p class="scroller-card-q">"I experienced massive transformation in just a few weeks. The community has such high vibration I could physically feel it."</p>
+        <div class="scroller-card-n">Kris Konsap <span>· Entrepreneur, Estonia</span></div>
+      </div>
+      <div class="scroller-card">
+        <div class="scroller-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/382x374/be615027ac/mvu_about_photogrid_8.png" alt=""></div>
+        <p class="scroller-card-q">"It exceeded all my expectations and opened my eyes to boundless possibilities that arise when individuals come together with shared purpose."</p>
+        <div class="scroller-card-n">Martin Garbers <span>· Leadership Coach, Germany</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     AFTERMOVIE
+     ═══════════════════════════════════════════ -->
+<section class="aftermovie" id="aftermovie">
+  <div class="aftermovie-inner">
+    <div class="aftermovie-head">
+      <div class="eyebrow">Watch the film</div>
+      <h2 class="display-sm">Words don't do it justice. <em>This is what actually happens.</em></h2>
+    </div>
+    <div class="aftermovie-frame">
+      <iframe
+        src="https://www.youtube.com/embed/BtHSsA0vkkU?rel=0"
+        title="Mindvalley U Official Aftermovie"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="aftermovie-cap">Mindvalley U · Tallinn · Official Aftermovie</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     RHYTHM — daily experience
+     ═══════════════════════════════════════════ -->
+<section class="rhythm">
+  <div class="rhythm-inner">
+    <div class="rhythm-head">
+      <div class="eyebrow eyebrow--dim">The rhythm of 14 days</div>
+      <h2 class="display-md">Reinvention <em>around the clock.</em></h2>
+    </div>
+
+    <div class="rhythm-grid">
+      <div class="rhythm-card">
+        <div class="rhythm-card-photo">
+          <img src="https://storyblok-cdn.mindvalley.com/f/60579/1218x1186/09c60f0184/mvu_about_photogrid_2.jpg" alt="Morning keynote session">
+        </div>
+        <div class="rhythm-card-time">06:30 — 12:00 · Morning</div>
+        <h3>The body comes alive <em>first.</em></h3>
+        <p>Sunrise yoga with Lee Holden. Breathwork with Dan Brulé. A 7am run through old town with whoever else is up. Then keynotes begin — world-class teachers who don't fly in, they live here with you.</p>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-card-photo">
+          <img src="https://storyblok-cdn.mindvalley.com/f/60579/1200x885/3c6bfd3e25/mvu_about_curriculum_4.jpg" alt="Afternoon deep dive workshop">
+        </div>
+        <div class="rhythm-card-time">13:00 — 18:00 · Afternoon</div>
+        <h3>Go deep on <em>what matters to you.</em></h3>
+        <p>Five tracks. Small masterminds with the teacher you've been reading for years. Workshops designed to be done, not just attended. Or take a friend to the Baltic coast — the schedule is deliberately flexible.</p>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-card-photo">
+          <img src="https://storyblok-cdn.mindvalley.com/f/60579/1214x780/a9c25307aa/mvu_about_photogrid_1.png" alt="Evening community gathering">
+        </div>
+        <div class="rhythm-card-time">19:00 — late · Night</div>
+        <h3>The evenings are <em>where lives change.</em></h3>
+        <p>Rooftop dinners. Eighteen hours of daylight. Fireside stories. Business partnerships forged at 2am. The closing celebration. You will not sleep enough. You will not regret it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SCHEDULE PREVIEW
+     ═══════════════════════════════════════════ -->
+<section class="schedule" id="schedule">
+  <div class="schedule-inner">
+    <div class="schedule-head">
+      <div class="eyebrow eyebrow--dim">Your 14 days</div>
+      <h2 class="display-md">Choose your track.<br><em>Plan your day.</em></h2>
+      <p>Five tracks. Hundreds of sessions across 14 days. You build the two weeks that matter for you.</p>
+    </div>
+
+    <!-- STEP 01 — Choose your track -->
+    <div class="step-label">
+      <span class="step-num">Step 01</span>
+      <h3 class="step-title">Choose your track</h3>
+      <p class="step-sub">Pick one as your anchor — or sample all five across 14 days.</p>
+    </div>
+
+    <div class="schedule-tracks" style="margin-bottom: 48px;">
+      <div class="schedule-track track-1">
+        <div class="schedule-track-label">Track 01</div>
+        <div class="schedule-track-title">Consciousness</div>
+        <p class="schedule-track-body">Meditation, energy work, spiritual depth. Sessions on awareness, altered states, and the mind of the next decade.</p>
+        <div class="track-faces">
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/9d3b0f7b20/shi-heng-yi_2x3.webp" alt="Shi Heng Yi"></div>
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/5693b4d187/jeffrey-allen-2_3.webp" alt="Jeffrey Allen"></div>
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/8107494ec6/valeria-hinojosa_2x3.webp" alt="Valeria Hinojosa"></div>
+        </div>
+      </div>
+      <div class="schedule-track track-2">
+        <div class="schedule-track-label">Track 02</div>
+        <div class="schedule-track-title">Relationships</div>
+        <p class="schedule-track-body">Intimacy, communication, the architecture of real love — and what it takes to build it.</p>
+        <div class="track-faces">
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/4d12d41e51/lorin-krenn_2x3.webp" alt="Lorin Krenn"></div>
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/84bcacc754/speaker_rachel-pringle.webp" alt="Rachel Pringle"></div>
+        </div>
+      </div>
+      <div class="schedule-track track-3">
+        <div class="schedule-track-label">Track 03</div>
+        <div class="schedule-track-title">Entrepreneurship</div>
+        <p class="schedule-track-body">Scale, leadership, brand, and the systems that compound — how to build what can't be copied.</p>
+        <div class="track-faces">
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/aefb9a6110/speaker_daniel-priestley.webp" alt="Daniel Priestley"></div>
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/72ce0cdec7/simon-alexander-ong_2x3.webp" alt="Simon Alexander Ong"></div>
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/e2ac22e72b/jamie_sea_2x3.webp" alt="Jamie Sea"></div>
+        </div>
+      </div>
+      <div class="schedule-track track-4">
+        <div class="schedule-track-label">Track 04</div>
+        <div class="schedule-track-title">Longevity & AI</div>
+        <p class="schedule-track-body">Biohacking, biology, and what it means to be human in the AI age — redesigning the 100-year life.</p>
+        <div class="track-faces">
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1152x1728/46ae70ef09/paul-mckenna.webp" alt="Paul McKenna"></div>
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/c2c9dc9191/speaker_dawn_hoang.webp" alt="Dawn Hoang"></div>
+        </div>
+      </div>
+      <div class="schedule-track track-5">
+        <div class="schedule-track-label">Track 05</div>
+        <div class="schedule-track-title">Expression</div>
+        <p class="schedule-track-body">Voice, creativity, presence. Everything that prepares you for the community stage in Tallinn.</p>
+        <div class="track-faces">
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/7ea1156c01/speaker_lee-holden.webp" alt="Lee Holden"></div>
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/7ccee40275/dan-brule_2x3.webp" alt="Dan Brulé"></div>
+          <div class="track-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/5b6284d725/speaker_jade-shaw.webp" alt="Jade Shaw"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 02 — Plan your day -->
+    <div class="step-label">
+      <span class="step-num">Step 02</span>
+      <h3 class="step-title">Plan your day</h3>
+      <p class="step-sub">Every time slot has multiple sessions to choose from. Here's one possible Tuesday:</p>
+    </div>
+
+    <!-- A day at MVU — sample timeline -->
+    <div class="day-timeline">
+
+      <div class="day-timeline-track">
+        <div class="day-card">
+          <div class="day-card-time">06:30</div>
+          <div class="day-card-kind">Sunrise Movement</div>
+          <div class="day-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/7ccee40275/dan-brule_2x3.webp" alt="Dan Brulé"></div>
+          <div class="day-card-who">Dan Brulé</div>
+          <div class="day-card-title">"Breath as Technology"</div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-time">09:30</div>
+          <div class="day-card-kind">Morning Keynote</div>
+          <div class="day-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/6b30d224d9/speaker_vishen-v2.webp" alt="Vishen Lakhiani"></div>
+          <div class="day-card-who">Vishen Lakhiani</div>
+          <div class="day-card-title">"The Era of Human Connection"</div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-time">13:00</div>
+          <div class="day-card-kind">Deep Dive</div>
+          <div class="day-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1152x1728/46ae70ef09/paul-mckenna.webp" alt="Paul McKenna"></div>
+          <div class="day-card-who">Paul McKenna</div>
+          <div class="day-card-title">"The Mind Under Pressure"</div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-time">16:30</div>
+          <div class="day-card-kind">Mastermind</div>
+          <div class="day-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/aefb9a6110/speaker_daniel-priestley.webp" alt="Daniel Priestley"></div>
+          <div class="day-card-who">Daniel Priestley</div>
+          <div class="day-card-title">"Build What Can't Be Copied"</div>
+        </div>
+        <div class="day-card">
+          <div class="day-card-time">19:30</div>
+          <div class="day-card-kind">Fireside Story</div>
+          <div class="day-card-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/981d362c58/speaker_regan-hillyer.webp" alt="Regan Hillyer"></div>
+          <div class="day-card-who">Regan Hillyer</div>
+          <div class="day-card-title">"The Wealth Code"</div>
+        </div>
+      </div>
+
+      <div class="day-timeline-foot">
+        <span>Plus</span>
+        <strong>Sunset rooftop gatherings · Late-night community circles · Workshops that happen on the street</strong>
+      </div>
+    </div>
+
+    <p class="schedule-note"><a href="https://www.mindvalley.com/u/schedule" class="link-arrow">See the full schedule page</a></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ENEMY
+     ═══════════════════════════════════════════ -->
+<section class="enemy">
+  <div class="enemy-inner">
+    <div class="enemy-head">
+      <div class="eyebrow">What happens in this room</div>
+      <h2 class="display-md">Four kinds of connections.<br>Each one could <em>outlive your ticket</em> by a decade.</h2>
+    </div>
+
+    <div class="enemy-list">
+      <div class="enemy-row">
+        <div class="enemy-not">A business partner.</div>
+        <div class="enemy-because">
+          "Five years of unforgettable friendship. This is the holistic approach — business, spirituality, health, emotional intelligence. You have it all."
+          <cite class="enemy-cite">Georgiana Bularca · CEO, Geocare</cite>
+        </div>
+      </div>
+      <div class="enemy-row">
+        <div class="enemy-not">A mentor.</div>
+        <div class="enemy-because">
+          "I met my mentors, my investors, and my first tribe who tested my techniques to the next level — and my wife. Literally all of this from one event."
+          <cite class="enemy-cite">Niraj Naik · SOMA Breathwork</cite>
+        </div>
+      </div>
+      <div class="enemy-row">
+        <div class="enemy-not">A friend for life.</div>
+        <div class="enemy-because">
+          "I now have ten soul sisters and brothers I can honestly call best friends forever."
+          <cite class="enemy-cite">Andra Trita · Bucharest, Romania</cite>
+        </div>
+      </div>
+      <div class="enemy-row">
+        <div class="enemy-not">A moment that rewrites everything.</div>
+        <div class="enemy-because">
+          "One impulse decision changed my life. I didn't think about it twice."
+          <cite class="enemy-cite">Lourdes Aldanondo · Founder, MindTouch · Spain</cite>
+        </div>
+      </div>
+    </div>
+
+    <div class="enemy-final">
+      <div class="enemy-final-text">This is what <em>the room</em> does.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TALLINN
+     ═══════════════════════════════════════════ -->
+<section class="tallinn">
+  <div class="tallinn-inner">
+    <div class="tallinn-text">
+      <div class="eyebrow eyebrow--dim">The place</div>
+      <h2 class="display-md">For 14 days, a city <em>becomes yours.</em></h2>
+      <p>Tallinn in July is a secret. Eighteen hours of daylight. A medieval old town compact enough that your people are always around the corner. In a major tourist city, 1,800 attendees scatter. In Tallinn, everyone converges.</p>
+
+      <div class="tallinn-facts">
+        <div class="tallinn-fact">
+          <div class="tallinn-fact-label">UNESCO</div>
+          <div class="tallinn-fact-text">13th-century old town as your campus</div>
+        </div>
+        <div class="tallinn-fact">
+          <div class="tallinn-fact-label">Midsummer</div>
+          <div class="tallinn-fact-text">18+ hours of daylight, warm Baltic evenings</div>
+        </div>
+        <div class="tallinn-fact">
+          <div class="tallinn-fact-label">Intimate</div>
+          <div class="tallinn-fact-text">A city small enough to find each other</div>
+        </div>
+        <div class="tallinn-fact">
+          <div class="tallinn-fact-label">Digital</div>
+          <div class="tallinn-fact-text">Europe's digital capital · birthplace of Skype</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tallinn-visual">
+      <div class="tallinn-photo tallinn-photo--main">
+        <img src="https://storyblok-cdn.mindvalley.com/f/60579/2880x1200/c06c80ba19/tallin-collage.webp" alt="Tallinn — the medieval city becomes your 14-day campus">
+        <div class="tallinn-badge">Tallinn · Your 14-day campus</div>
+      </div>
+      <div class="tallinn-photo">
+        <img src="https://storyblok-cdn.mindvalley.com/f/60579/2400x901/81e3cb919a/venue.webp" alt="MVU 2026 venue">
+        <div class="tallinn-badge">The venue</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ROOM — 3 personas
+     ═══════════════════════════════════════════ -->
+<section class="room">
+  <div class="room-inner">
+    <div class="room-head">
+      <div class="eyebrow eyebrow--dim">Who's in the room</div>
+      <h2 class="display-md">Three kinds of people<br>you'll meet.</h2>
+      <p>You'll recognise yourself in one. You'll meet the other two.</p>
+    </div>
+
+    <div class="room-grid">
+      <div class="room-card">
+        <div class="room-num">I</div>
+        <h3 class="room-name">The <em>Seeker</em></h3>
+        <p class="room-body">You've read the books. Done the quests. Listened to the podcasts. You've built a good life — but you're living it in the wrong room. Your friends don't get it. You're tired of doing this alone.</p>
+        <p class="room-line">"I finally found my people."</p>
+      </div>
+      <div class="room-card">
+        <div class="room-num">II</div>
+        <h3 class="room-name">The <em>Returnee</em></h3>
+        <p class="room-body">You've been before. You miss your people. You know nothing else replicates what happens in Tallinn. A new city, new theme, new cohort joining — you already know the answer.</p>
+        <p class="room-line">"Your people are going back."</p>
+      </div>
+      <div class="room-card">
+        <div class="room-num">III</div>
+        <h3 class="room-name">The <em>Member</em></h3>
+        <p class="room-body">You've done the quests. You know Jeffrey Allen's work better than some of your friends know you. MVU is where the screen becomes a city, and fellow students become your family in person.</p>
+        <p class="room-line">"Meet the people on the other side of the screen."</p>
+      </div>
+    </div>
+
+    <div class="room-aside">
+      <div class="room-aside-label">And a fourth, for a specific kind of person</div>
+      <p class="room-aside-text">If you have a message, a methodology, a story — there's a stage in Tallinn, curated by Mindvalley, with <em>your name on it.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STAGE — community stage
+     ═══════════════════════════════════════════ -->
+<section class="stage">
+  <div class="stage-inner">
+    <div class="stage-top">
+      <div class="stage-top-l">
+        <div class="eyebrow">The community stage</div>
+        <h2 class="display-lg">There is a stage in Tallinn<br><em>with your name on it.</em></h2>
+      </div>
+      <div class="stage-top-r">
+        <p class="stage-lede">You're not just going to Mindvalley U. You're going to be discovered there.</p>
+        <p class="stage-body">Mindvalley curates the community stage — selecting speakers from the attending pool. This is not an open mic. It's Mindvalley saying: <em>your wisdom belongs in front of this room.</em></p>
+      </div>
+    </div>
+
+    <div class="stage-photo">
+      <img src="https://storyblok-cdn.mindvalley.com/f/60579/802x374/691754a7ce/mvu_about_photogrid_9.png" alt="An attendee takes the community stage">
+      <div class="stage-photo-caption">An attendee on the Mindvalley U stage · Tallinn</div>
+    </div>
+
+    <div class="stage-flow">
+      <div class="stage-step">
+        <div class="stage-step-num">01</div>
+        <div class="stage-step-title">Secure your ticket</div>
+        <div class="stage-step-sub">For tribe, experience, transformation.</div>
+      </div>
+      <div class="stage-step">
+        <div class="stage-step-num">02</div>
+        <div class="stage-step-title">Apply to speak</div>
+        <div class="stage-step-sub">Writing what you'd say forces clarity.</div>
+      </div>
+      <div class="stage-step">
+        <div class="stage-step-num">03</div>
+        <div class="stage-step-title">Get selected</div>
+        <div class="stage-step-sub">Mindvalley validates your wisdom.</div>
+      </div>
+      <div class="stage-step">
+        <div class="stage-step-num">04</div>
+        <div class="stage-step-title">You speak</div>
+        <div class="stage-step-sub">1,800 conscious humans. One room.</div>
+      </div>
+      <div class="stage-step">
+        <div class="stage-step-num">05</div>
+        <div class="stage-step-title">Life changes</div>
+        <div class="stage-step-sub">The Regan arc begins again.</div>
+      </div>
+    </div>
+
+    <div class="stage-cta-row">
+      <p class="stage-cta-line">Mindvalley doesn't book already-famous speakers.<br><em>It discovers the ones who are about to be.</em></p>
+      <a href="#tickets" class="btn btn--gold">Secure ticket, then apply</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAMILY
+     ═══════════════════════════════════════════ -->
+<section class="family" id="family">
+  <div class="family-inner">
+    <div class="family-visual">
+      <img src="https://storyblok-cdn.mindvalley.com/f/60579/4000x1800/e4348b0b99/mvu-youth_03.jpeg" alt="Mindvalley U Youth Program — kids exploring together">
+      <div class="family-ages">
+        <span class="family-age">Ages 3–5</span>
+        <span class="family-age">Ages 6–9</span>
+        <span class="family-age">Ages 9–13</span>
+        <span class="family-age">Ages 13–17</span>
+      </div>
+    </div>
+    <div class="family-text">
+      <div class="eyebrow eyebrow--dim">For families</div>
+      <h2 class="display-md">While you grow,<br><em>they grow too.</em></h2>
+      <p>Mindvalley U is built for families. Our Kids & Teens program runs parallel to the main event — Waldorf-inspired exploration for toddlers, AI and entrepreneurship for teens.</p>
+      <p>The only thing better than a breakthrough is having someone you love right there with you.</p>
+
+      <div class="family-grid">
+        <div>
+          <div class="family-hl-num">4</div>
+          <div class="family-hl-label">Age-specific<br>programs</div>
+        </div>
+        <div>
+          <div class="family-hl-num">2</div>
+          <div class="family-hl-label">Weeks of<br>programming</div>
+        </div>
+        <div>
+          <div class="family-hl-num">Fri</div>
+          <div class="family-hl-label">Parent showcase<br>each week</div>
+        </div>
+      </div>
+
+      <div class="family-partner">
+        <img src="https://storyblok-cdn.mindvalley.com/f/60579/564x126/9a91d0f902/logo_learnlife.webp" alt="Learnlife">
+        <span>In partnership with Learnlife — recognised by OECD, Forbes & HundrED.</span>
+      </div>
+
+      <div class="family-actions">
+        <a href="#tickets" class="btn btn--ink">Get family tickets</a>
+        <a href="https://www.mindvalley.com/u#youth" class="link-arrow">Explore the program</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FACULTY — B&W grid hover color
+     ═══════════════════════════════════════════ -->
+<section class="faculty" id="faculty">
+  <div class="faculty-inner">
+    <div class="faculty-head">
+      <div class="eyebrow">2026 Faculty</div>
+      <h2 class="display-md">They live the 14 days <em>alongside you.</em></h2>
+      <p>Not speakers who fly in, present, and leave. They eat at the same restaurants, show up at the parties, live in the same city for the full two weeks.</p>
+    </div>
+
+    <div class="faculty-grid">
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/6b30d224d9/speaker_vishen-v2.webp" alt="Vishen Lakhiani"></div>
+        <div class="faculty-name">Vishen Lakhiani</div>
+        <div class="faculty-role">Founder</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/18eecb3a7f/speaker_kristina-mand-lakhiani.webp" alt="Kristina Mand-Lakhiani"></div>
+        <div class="faculty-name">Kristina Mand-Lakhiani</div>
+        <div class="faculty-role">Co-founder</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/9d3b0f7b20/shi-heng-yi_2x3.webp" alt="Shi Heng Yi"></div>
+        <div class="faculty-name">Shi Heng Yi</div>
+        <div class="faculty-role">Shaolin master</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/5693b4d187/jeffrey-allen-2_3.webp" alt="Jeffrey Allen"></div>
+        <div class="faculty-name">Jeffrey Allen</div>
+        <div class="faculty-role">Energy healer</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/aefb9a6110/speaker_daniel-priestley.webp" alt="Daniel Priestley"></div>
+        <div class="faculty-name">Daniel Priestley</div>
+        <div class="faculty-role">Entrepreneur</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1152x1728/46ae70ef09/paul-mckenna.webp" alt="Paul McKenna"></div>
+        <div class="faculty-name">Paul McKenna</div>
+        <div class="faculty-role">World's #1 hypnotist</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/72ce0cdec7/simon-alexander-ong_2x3.webp" alt="Simon Alexander Ong"></div>
+        <div class="faculty-name">Simon Alexander Ong</div>
+        <div class="faculty-role">Performance coach</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/4d12d41e51/lorin-krenn_2x3.webp" alt="Lorin Krenn"></div>
+        <div class="faculty-name">Lorin Krenn</div>
+        <div class="faculty-role">Relationships</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/e2ac22e72b/jamie_sea_2x3.webp" alt="Jamie Sea"></div>
+        <div class="faculty-name">Jamie Sea</div>
+        <div class="faculty-role">Abundance</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/7ccee40275/dan-brule_2x3.webp" alt="Dan Brulé"></div>
+        <div class="faculty-name">Dan Brulé</div>
+        <div class="faculty-role">Breathwork pioneer</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1600x2400/8107494ec6/valeria-hinojosa_2x3.webp" alt="Valeria Hinojosa"></div>
+        <div class="faculty-name">Valeria Hinojosa</div>
+        <div class="faculty-role">Mindfulness</div>
+      </div>
+      <div class="faculty-card">
+        <div class="faculty-photo"><img src="https://storyblok-cdn.mindvalley.com/f/60579/564x846/c2c9dc9191/speaker_dawn_hoang.webp" alt="Dawn Hoang"></div>
+        <div class="faculty-name">Dawn Hoang</div>
+        <div class="faculty-role">Manifestation</div>
+      </div>
+    </div>
+
+    <div class="faculty-footer">
+      <a href="mvu-speakers.html" class="link-arrow on-dark">View the full 2026 lineup</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     VOICES
+     ═══════════════════════════════════════════ -->
+<section class="voices">
+  <div class="voices-inner">
+    <div class="voices-head">
+      <div class="eyebrow eyebrow--dim">In their own words</div>
+      <h2 class="display-md">It's hard to explain<br>what actually <em>happens here.</em></h2>
+    </div>
+
+    <div class="voices-feature">
+      <p class="voices-feature-quote">"Five years ago I came to the first-ever Mindvalley U in Barcelona. I met my mentors, investors, first tribe who tested out my techniques — <em class="accent">and even my wife.</em> Literally all from one event."</p>
+      <div>
+        <div class="voices-attr-name">Niraj Naik</div>
+        <div class="voices-attr-role">World's leading breathwork expert</div>
+      </div>
+    </div>
+
+    <div class="voices-grid">
+      <div class="voice">
+        <p class="voice-q">"We can bring our children, our mothers, our fathers — and there is something for everyone."</p>
+        <div class="voice-a">
+          <div class="voice-name">Dr. Shefali</div>
+          <div class="voice-role">Clinical psychologist & author</div>
+        </div>
+      </div>
+      <div class="voice">
+        <p class="voice-q">"It's honestly unlike anything I've experienced. I don't think anything like MVU exists."</p>
+        <div class="voice-a">
+          <div class="voice-name">Ben Greenfield</div>
+          <div class="voice-role">Leading biohacking expert</div>
+        </div>
+      </div>
+      <div class="voice">
+        <p class="voice-q">"The only place I've been where the entire group is truly dedicated to uplifting one another."</p>
+        <div class="voice-a">
+          <div class="voice-name">Naveen Jain</div>
+          <div class="voice-role">Founder & CEO, Viome</div>
+        </div>
+      </div>
+      <div class="voice voice--stat">
+        <div class="voice-stat-num">89%</div>
+        <p class="voice-stat-text">of attendees report measurable life improvements within 90 days.</p>
+        <div class="voice-stat-source">Post-event survey · 2022–2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MATH — 40 summers
+     ═══════════════════════════════════════════ -->
+<section class="math">
+  <div class="math-inner">
+    <div class="math-left">
+      <div class="eyebrow eyebrow--dim">The math nobody wants to do</div>
+      <h2 class="math-title">The summers you have <em>left.</em></h2>
+      <p>You have roughly forty summers ahead where you'll still want to travel. Still be healthy enough. Still have the people you love wanting to come with you.</p>
+      <p>Last year, 1,800 of them spent 14 days of one of those summers in Tallinn. <em>None of them regret it.</em></p>
+    </div>
+    <div class="math-right">
+      <div class="math-callout">
+        <div class="math-callout-inner">
+          <div class="math-callout-label">Roughly</div>
+          <div class="math-callout-num">40</div>
+          <div class="math-callout-unit">summers left.</div>
+          <div class="math-callout-foot">After 40, most of us stop doing the things that matter. Before 40, we keep saying "next year."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     VALUE STACK
+     ═══════════════════════════════════════════ -->
+<section class="value">
+  <div class="value-inner">
+    <div class="value-head">
+      <div class="eyebrow eyebrow--dim">What's actually included</div>
+      <h2 class="display-md">Everything in the room,<br><em>added up.</em></h2>
+      <p>Most events show you a price. Here's what you're actually getting.</p>
+    </div>
+
+    <div class="value-stack">
+      <div class="value-row">
+        <div class="value-row-num">01</div>
+        <div class="value-row-text"><strong>14 days of full programming</strong><span class="sub">100+ sessions with world-class faculty</span></div>
+        <div class="value-row-price">$4,200 value</div>
+      </div>
+      <div class="value-row">
+        <div class="value-row-num">02</div>
+        <div class="value-row-text"><strong>Evening events, theme nights, city adventures</strong><span class="sub">From rooftop dinners to the Roaring Twenties closing party</span></div>
+        <div class="value-row-price">$1,200 value</div>
+      </div>
+      <div class="value-row">
+        <div class="value-row-num">03</div>
+        <div class="value-row-text"><strong>Community Stage application eligibility</strong><span class="sub">Your shot at being discovered — the Regan Hillyer arc</span></div>
+        <div class="value-row-price">Priceless</div>
+      </div>
+      <div class="value-row">
+        <div class="value-row-num">04</div>
+        <div class="value-row-text"><strong>12 months access to MVU community app</strong><span class="sub">Year-round network with every attendee</span></div>
+        <div class="value-row-price">$600 value</div>
+      </div>
+      <div class="value-row">
+        <div class="value-row-num">05</div>
+        <div class="value-row-text"><strong>Connection Guarantee</strong><span class="sub">You will form at least one meaningful connection in 3 days — we stand behind it</span></div>
+        <div class="value-row-price">Priceless</div>
+      </div>
+      <div class="value-row">
+        <div class="value-row-num">06</div>
+        <div class="value-row-text"><strong>Bonus: Aftermovie & keynote library</strong><span class="sub">Every MVU session from 2024 + 2025 while you wait</span></div>
+        <div class="value-row-price">$400 value</div>
+      </div>
+      <div class="value-row total">
+        <div class="value-row-num">∑</div>
+        <div class="value-row-text"><strong>Total value</strong></div>
+        <div class="value-row-price">$6,400+</div>
+      </div>
+      <div class="value-row your-price">
+        <div class="value-row-num">→</div>
+        <div class="value-row-text"><strong>Your price, Adult Pass</strong></div>
+        <div class="value-row-price">$1,599</div>
+      </div>
+    </div>
+
+    <p class="value-footnote">Standalone market value based on comparable personal-development programming, retreats, and community access tools.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ANSWERS — objections
+     ═══════════════════════════════════════════ -->
+<section class="answers">
+  <div class="answers-inner">
+    <div class="answers-head">
+      <div class="eyebrow eyebrow--dim">Honest answers</div>
+      <h2 class="display-md">Every reason not to go —<br><em>answered.</em></h2>
+    </div>
+
+    <div class="answers-list">
+      <div class="answer">
+        <div class="answer-q">"I'd be going alone."</div>
+        <div class="answer-a">So did almost everyone at their first MVU. That shared vulnerability is what creates depth. <strong>You will not feel like a stranger past day one.</strong> A promise backed by ten years of alumni telling exactly this story.</div>
+      </div>
+      <div class="answer">
+        <div class="answer-q">"Estonia feels far."</div>
+        <div class="answer-a">Tallinn being off the tourist path is the feature. In a major city, 1,800 people scatter. <strong>In Tallinn, everyone converges.</strong> That forced intimacy is where the magic happens.</div>
+      </div>
+      <div class="answer">
+        <div class="answer-q">"$1,599–$7,995 is a lot."</div>
+        <div class="answer-a">It is. Every alum frames it the same way in hindsight: <strong>one partnership, one client, one mentor from MVU returns the investment many times over.</strong> You're buying access to a room — and everything that follows.</div>
+      </div>
+      <div class="answer">
+        <div class="answer-q">"Events rarely produce lasting connections."</div>
+        <div class="answer-a">Most events are three days. You exchange cards, go home, nothing forms. <strong>MVU is 14 days in the same city.</strong> Depth is a function of time.</div>
+      </div>
+      <div class="answer">
+        <div class="answer-q">"I already get Mindvalley online."</div>
+        <div class="answer-a">You do. But everything you've learned online <strong>becomes real in a different way</strong> when you're sitting next to someone who had the exact same breakthrough. A screen can't give you that.</div>
+      </div>
+      <div class="answer">
+        <div class="answer-q">"I'm not ready to speak on stage."</div>
+        <div class="answer-a">Neither was Regan Hillyer. Neither was Niraj Naik, Jimmy Naraine, Dawn Hoang. <strong>The stage isn't for people who've made it. It's for people who are about to.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     GUARANTEE
+     ═══════════════════════════════════════════ -->
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <div class="guarantee-seal">
+      <div class="guarantee-seal-top">MVU 2026</div>
+      <div class="guarantee-seal-middle">Guarantee</div>
+      <div class="guarantee-seal-bottom">3 DAYS</div>
+    </div>
+    <div class="guarantee-content">
+      <div class="eyebrow">Our promise</div>
+      <h2 class="guarantee-h">You will form <strong>at least one meaningful connection</strong> in your first three days. We stake our name on it.</h2>
+      <p class="guarantee-body">We've watched it happen ten thousand times across a decade. If you show up with an open mind, the room will meet you. This is the thing MVU is built around — and the promise we stand behind.</p>
+      <p class="guarantee-sign">— The Mindvalley U team</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TICKETS — now with Virtual tier
+     ═══════════════════════════════════════════ -->
+<section class="tickets" id="tickets">
+  <div class="tickets-inner">
+    <div class="tickets-head">
+      <div class="eyebrow eyebrow--dim">Your spot</div>
+      <h2 class="display-md">Four ways to <em>show up.</em></h2>
+      <p>Every tier carries the Connection Guarantee. One week or two. Virtual always available.</p>
+    </div>
+
+    <div class="tickets-grid">
+
+      <div class="ticket ticket--virtual">
+        <div class="ticket-tier">Members Only</div>
+        <h3 class="ticket-name">Virtual Access</h3>
+        <div class="ticket-price">
+          <div class="ticket-price-from">For Mindvalley members</div>
+          <div class="ticket-price-amount">Free</div>
+          <div class="ticket-price-note">Included with your membership</div>
+        </div>
+        <ul class="ticket-features">
+          <li>Livestream all keynotes</li>
+          <li>Access to recorded sessions</li>
+          <li>Community app year-round</li>
+          <li>Can't travel? Join virtually.</li>
+        </ul>
+        <a href="#" class="ticket-cta ticket-cta--outline">Join virtually</a>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-tier">Standard</div>
+        <h3 class="ticket-name">Adult Pass</h3>
+        <div class="ticket-price">
+          <div class="ticket-price-from">From</div>
+          <div class="ticket-price-amount">$1,599</div>
+          <div class="ticket-price-note">/ 1 week · 2 weeks $2,799</div>
+        </div>
+        <ul class="ticket-features">
+          <li>Full access to keynotes & sessions</li>
+          <li>Evening events, theme nights</li>
+          <li>City adventures, community app</li>
+          <li>Stage application eligibility</li>
+        </ul>
+        <a href="#" class="ticket-cta ticket-cta--outline">Claim your spot</a>
+      </div>
+
+      <div class="ticket ticket--featured">
+        <div class="ticket-badge">Most popular</div>
+        <div class="ticket-tier">VIP</div>
+        <h3 class="ticket-name">VIP Pass</h3>
+        <div class="ticket-price">
+          <div class="ticket-price-from">From</div>
+          <div class="ticket-price-amount">$2,149</div>
+          <div class="ticket-price-note">/ 1 week · 2 weeks $3,349</div>
+        </div>
+        <ul class="ticket-features">
+          <li>Everything in Adult Pass</li>
+          <li><strong>Priority seating</strong> at keynotes</li>
+          <li><strong>Stage Talk recordings</strong></li>
+          <li><strong>Private VIP social</strong> with speakers</li>
+        </ul>
+        <a href="#" class="ticket-cta ticket-cta--primary">Claim your spot</a>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-tier">First Class</div>
+        <h3 class="ticket-name">First Class Pass</h3>
+        <div class="ticket-price">
+          <div class="ticket-price-from">From</div>
+          <div class="ticket-price-amount">$7,995</div>
+          <div class="ticket-price-note">/ 1 week · Only 24 spots</div>
+        </div>
+        <ul class="ticket-features">
+          <li>Everything in VIP Pass</li>
+          <li><strong>Personal concierge</strong> & airport transfer</li>
+          <li><strong>Private lounge</strong> all 14 days</li>
+          <li><strong>Private speaker dinners</strong></li>
+        </ul>
+        <a href="#" class="ticket-cta ticket-cta--gold">Reserve First Class</a>
+      </div>
+
+    </div>
+
+    <p class="tickets-note">Connection Guarantee applies to every tier · Kids & Teens tickets sold separately · Families of 5+ contact us for group pricing · Payment plans available</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAQ
+     ═══════════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-head">
+      <div class="eyebrow eyebrow--dim">FAQ</div>
+      <h2 class="display-md">Practical questions,<br><em>quickly answered.</em></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-num">01</div>
+        <div>
+          <div class="faq-q">Can I get a refund if I change my mind?</div>
+          <div class="faq-a">Yes. We offer flexible refunds if your plans change — book with confidence. See the tickets page for the full refund window and terms.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">02</div>
+        <div>
+          <div class="faq-q">Can I attend for just one week?</div>
+          <div class="faq-a">Yes. 1-week tickets for Week 1 (Jul 20–26) or Week 2 (Jul 27–Aug 2), or the full 14 days. The schedule is deliberately flexible.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">03</div>
+        <div>
+          <div class="faq-q">What is your cancellation policy?</div>
+          <div class="faq-a">Flexible cancellation options are available up to a specified date before the event. Please see the ticket page for the full policy. Our Connection Guarantee reflects the core promise of MVU — the room will meet you if you show up with an open mind.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">04</div>
+        <div>
+          <div class="faq-q">Can my children attend?</div>
+          <div class="faq-a">Yes. Youth programs serve ages 3–17 parallel to the main event. Kids must be accompanied by a parent or guardian with a ticket. Youth tickets sold separately.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">05</div>
+        <div>
+          <div class="faq-q">How does Community Stage selection work?</div>
+          <div class="faq-a">Once you have a ticket, you're eligible to apply. Mindvalley selects speakers based on the truth and transformation behind the message — not follower count.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-num">06</div>
+        <div>
+          <div class="faq-q">Are payment plans available?</div>
+          <div class="faq-a">Yes — 2 and 4-payment installment options at checkout. Zero-interest split pay for all tiers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════ -->
+<section class="final">
+  <div class="final-bg">
+    <img src="https://storyblok-cdn.mindvalley.com/f/60579/2400x1602/8f059d5bf2/tallinn2024.webp" alt="">
+  </div>
+  <div class="final-inner">
+    <div class="eyebrow">Mindvalley U 2026 · Tallinn · Jul 20 – Aug 2</div>
+
+    <h2 class="final-line">You've outgrown your current room.<br><strong>Step into the next one.</strong></h2>
+
+    <p class="final-sub">The extraordinary humans who will change your trajectory are already registered. Are you?</p>
+
+    <div class="final-actions">
+      <a href="#tickets" class="btn btn--gold">Claim your spot <span class="sub">1 week $1,599 · 2 weeks $2,799</span></a>
+    </div>
+
+    <div class="final-note">Connection Guarantee · Virtual always available · Family packages</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://res.cloudinary.com/mindvalley/image/upload/v1640746015/mvcom/mv-logo.svg" alt="Mindvalley">
+      <span>Mindvalley U 2026</span>
+    </div>
+
+    <ul class="footer-links">
+      <li><a href="#top">Overview</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#faculty">Speakers</a></li>
+      <li><a href="#family">Youth</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#tickets">Tickets</a></li>
+      <li><a href="mvu-stories.html">Stories</a></li>
+      <li><a href="mvu-gallery.html">Gallery</a></li>
+      <li><a href="mvu-press.html">Press</a></li>
+      <li><a href="mvu-volunteer.html">Volunteer</a></li>
+      <li><a href="https://support.mindvalley.com">Support</a></li>
+      <li><a href="https://www.mindvalley.com/terms">Terms</a></li>
+      <li><a href="https://www.mindvalley.com/privacy">Privacy</a></li>
+    </ul>
+
+    <div class="footer-copy">© 2026 Mindvalley, Inc. · All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const menu = document.querySelector('.nav-menu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+  }
+
+  // Early bird countdown — edit this date to match actual early bird deadline
+  const EARLY_BIRD_END = new Date('2026-05-20T23:59:59');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = EARLY_BIRD_END - now;
+
+    if (diff <= 0) {
+      document.querySelectorAll('[id^="countdown-"]').forEach(el => {
+        el.textContent = 'Expired';
+      });
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    const formatted = `${days}d : ${String(hours).padStart(2,'0')}h : ${String(minutes).padStart(2,'0')}m : ${String(seconds).padStart(2,'0')}s`;
+
+    document.querySelectorAll('[id^="countdown-"]').forEach(el => {
+      el.textContent = formatted;
+    });
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
