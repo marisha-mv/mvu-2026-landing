@@ -160,6 +160,24 @@
   .btn--cream { background: var(--cream); color: var(--ink); }
   .btn--cream:hover { background: var(--paper); }
 
+  .btn--sold-out {
+    background: transparent;
+    color: var(--stone);
+    border: 1px solid rgba(15, 14, 12, 0.22);
+    cursor: not-allowed;
+    pointer-events: none;
+    position: relative;
+  }
+  .btn--sold-out::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--rust);
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+
   .btn--gold { background: var(--gold); color: var(--ink); }
   .btn--gold:hover { background: var(--gold-light); }
 
@@ -3751,7 +3769,7 @@
       </div>
 
       <div class="family-actions">
-        <a href="#tickets" class="btn btn--ink">Get family tickets</a>
+        <span class="btn btn--sold-out" aria-disabled="true">Sold out</span>
         <a href="https://www.mindvalley.com/u#youth" class="link-arrow">Explore the program</a>
       </div>
     </div>
