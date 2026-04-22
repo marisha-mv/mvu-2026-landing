@@ -694,54 +694,74 @@
     margin: 0 auto;
   }
 
-  /* Circle of real attendees — ties visually to "the right circle" */
-  .opener-circle {
-    display: flex;
-    justify-content: center;
-    margin-top: 56px;
-    padding-left: 28px;
+  /* Collage of real attendees + event moments */
+  .opener-collage {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 170px 170px;
+    gap: 8px;
+    max-width: 960px;
+    margin: 64px auto 0;
   }
 
-  .circle-face {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
+  .collage-tile {
     overflow: hidden;
-    margin-left: -28px;
-    border: 3px solid var(--cream);
-    box-shadow: 0 6px 20px rgba(15,14,12,0.1);
+    border-radius: 4px;
     background: var(--mist);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
+    min-height: 0;
+    min-width: 0;
   }
 
-  .circle-face:first-child { margin-left: 0; }
-
-  .circle-face:hover {
-    transform: translateY(-6px);
+  .collage-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(15,14,12,0.1);
     z-index: 2;
   }
 
-  .circle-face img {
+  .collage-tile img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    transition: transform 0.5s ease;
   }
 
-  .opener-circle-label {
-    margin-top: 24px;
+  .collage-tile:hover img {
+    transform: scale(1.04);
+  }
+
+  .collage-tile--large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .opener-collage-label {
+    margin-top: 28px;
     font-family: var(--display);
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--stone);
+    text-align: center;
   }
 
-  .opener-circle-label strong {
+  .opener-collage-label strong {
     color: var(--ink);
     font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .opener-collage {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 130px 130px 130px;
+    }
+    .collage-tile--large {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
   }
 
   /* ═══════════════════════════════════════════
@@ -3581,16 +3601,16 @@
     <p class="opener-q">The right circle can change<br>the trajectory of your life <em>overnight.</em></p>
     <p class="opener-body">A single conversation, a single introduction, a single dinner with the right people — and your next ten years look different. Once a year, in one European city, that room assembles.</p>
 
-    <div class="opener-circle">
-      <div class="circle-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/d602fbfa04/mvu_about_photogrid_3.jpg" alt=""></div>
-      <div class="circle-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/800x780/71669a4b62/mvu_about_photogrid_5.jpg" alt=""></div>
-      <div class="circle-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/f9d83c0e6f/mvu_about_photogrid_4.jpg" alt=""></div>
-      <div class="circle-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/382x374/01af19d93e/mvu_about_photogrid_6.jpg" alt=""></div>
-      <div class="circle-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/67270fd7f3/mvu_about_photogrid_7.jpg" alt=""></div>
-      <div class="circle-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/382x376/7585e3ce6c/mvu_about_photogrid_10.png" alt=""></div>
-      <div class="circle-face"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/6e7d690ef1/mvu_about_photogrid_11.jpg" alt=""></div>
+    <div class="opener-collage">
+      <div class="collage-tile collage-tile--large"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1180x880/3f7b54f88d/mvu_about_community_3.jpg" alt="MVU community gathering"></div>
+      <div class="collage-tile"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/d602fbfa04/mvu_about_photogrid_3.jpg" alt=""></div>
+      <div class="collage-tile"><img src="https://storyblok-cdn.mindvalley.com/f/60579/800x780/71669a4b62/mvu_about_photogrid_5.jpg" alt=""></div>
+      <div class="collage-tile"><img src="https://storyblok-cdn.mindvalley.com/f/60579/1214x780/a9c25307aa/mvu_about_photogrid_1.png" alt="Evening at MVU"></div>
+      <div class="collage-tile"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/67270fd7f3/mvu_about_photogrid_7.jpg" alt=""></div>
+      <div class="collage-tile"><img src="https://storyblok-cdn.mindvalley.com/f/60579/384x374/6e7d690ef1/mvu_about_photogrid_11.jpg" alt=""></div>
+      <div class="collage-tile"><img src="https://storyblok-cdn.mindvalley.com/f/60579/802x374/691754a7ce/mvu_about_photogrid_9.png" alt="Attendee on stage"></div>
     </div>
-    <div class="opener-circle-label">Real attendees · <strong>10,000+ alumni</strong> across 100+ countries</div>
+    <div class="opener-collage-label">Real moments · <strong>10,000+ alumni</strong> across 100+ countries</div>
   </div>
 </section>
 
